@@ -1,0 +1,52 @@
+.portada__atractivos{
+    position: relative;
+    img{
+        width: 100%;
+        opacity: 0.9;
+        filter: brightness(0.15);
+    }
+
+    h1{
+        position: absolute;
+        top:45%;
+        color:white;
+        font-weight: 700;
+    }
+
+}
+
+.card__atractivo{
+    width: 90vw;
+    border: solid 2px #065658 ;
+    border-radius: 5px 30px 5px 30px;
+    h4{
+        font-weight: 600;
+    }
+
+    p{
+        width: 90%;
+
+    }
+    img{
+        width: 90%;
+    }
+}
+
+.guias{
+    width: 85%;
+    border: #065658 2px solid;
+    border-radius: 10px;
+
+    img{
+        width: 27vw;
+        border: #e6e6e6 3px solid;
+        border-radius: 50%;
+    }
+
+    a{
+        text-decoration: none;
+        color: white;
+        background-color: #065658;
+        border-radius: 20px;
+    }
+}

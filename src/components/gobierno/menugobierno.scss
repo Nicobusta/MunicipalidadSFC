@@ -1,0 +1,38 @@
+.sidebar{
+    width: 90%;
+    position: relative;
+
+    .titulo{
+        width: 75%;
+        position: absolute;
+        top:20px ;
+        color: white;
+        background-color: #065658;
+        border-radius: 0 20px 20px 0;
+    }
+    
+   ul{
+    list-style-type: none;
+    padding: 0;
+    border-radius: 10px 10px 41px 11px;
+    background-color: rgb(245, 243, 136);
+    padding-top: 40px;
+   }
+    a{
+        text-decoration: none;
+        color: black;
+    }
+    .active {
+        a{
+            color: black;
+            font-weight: bold;
+        } 
+      }
+    li{
+        background-color: rgb(241, 238, 238);
+        border: 1px solid white;
+        &:last-child{
+            border-radius: 0 0 40px 10px;
+        }
+    }
+}

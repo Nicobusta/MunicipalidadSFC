@@ -1,0 +1,52 @@
+.card__historia{
+    border: 1px solid #dcddde;
+    padding:2rem;
+    position: relative;
+    margin: 3rem 0.5rem;
+
+    img{
+        width: 100%;
+        height: auto;
+    }
+    &::before{
+        position: absolute;
+        content: "";
+        background-color: #fff;
+        border-left: 1px solid #dcddde;
+        border-top: 1px solid #dcddde;
+        height: 20px;
+        left: -11px;
+        right: 100%; 
+        top: 2.4rem;
+        transform: rotate(-45deg);
+        
+        width: 20px;
+        z-index: 5;
+    }
+
+    .circulo{
+        position: absolute;
+        background-color: #106e2f;
+        border-radius: 50%;
+        height: 20px;
+        width: 20px;
+        left: -45px;
+        right: 100%; 
+        top: 2.4rem;
+        
+    }
+
+}
+
+.timeline{
+position: relative;
+width: 70%;
+    &::before{
+        border-left: 4px solid #cdd0d4;
+        bottom: 0;
+        content: "";
+        left: -28px;
+        position: absolute;
+        top: 3rem;
+    }
+}
