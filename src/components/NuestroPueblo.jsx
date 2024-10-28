@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./nuestroPueblo.scss";
 import banner from "../assets/bannerNuestroPueblo.jpg";
 import galeria1 from "../assets/galeria/galeria1.jpeg";
@@ -24,6 +24,28 @@ import elcruce from "../assets/gastronomia/elcruce.jpg";
 import nacha from "../assets/gastronomia/nacha.png";
 
 const NuestroPueblo = () => {
+  const carouselRef = useRef(null);
+  const galleryImagesRef = useRef([]);
+
+  useEffect(() => {
+    // Inicializa el carrusel de Bootstrap
+    const carousel = new window.bootstrap.Carousel(carouselRef.current);
+
+    // Asigna el evento click a cada imagen
+    galleryImagesRef.current.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        // Muestra el slide correspondiente en el carrusel
+        carousel.to(index);
+      });
+    });
+
+    // Limpia los event listeners al desmontar el componente
+    return () => {
+      galleryImagesRef.current.forEach((img) => {
+        img.removeEventListener('click', () => carousel.to());
+      });
+    };
+  }, []);
   return (
     <main>
       <section className="banersNP">
@@ -55,6 +77,7 @@ const NuestroPueblo = () => {
             className="w-100 my-3 rounded-2"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
+            ref={(el) => (galleryImagesRef.current[0] = el)}
           />
           <div className="w-50 d-flex flex-column pe-3">
             <img
@@ -63,6 +86,7 @@ const NuestroPueblo = () => {
               className="mb-3 rounded-2"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
+              ref={(el) => (galleryImagesRef.current[1] = el)}
             />
 
             <img
@@ -71,6 +95,7 @@ const NuestroPueblo = () => {
               className="mb-3 rounded-2"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
+              ref={(el) => (galleryImagesRef.current[2] = el)}
             />
           </div>
           <img
@@ -79,6 +104,7 @@ const NuestroPueblo = () => {
             className="w-50 mb-3 rounded-2"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
+            ref={(el) => (galleryImagesRef.current[3] = el)}
           />
           <img
             src={galeria6}
@@ -86,6 +112,7 @@ const NuestroPueblo = () => {
             className="w-50 mb-3 pe-3 rounded-2"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
+            ref={(el) => (galleryImagesRef.current[4] = el)}
           />
           <div className="w-50 d-flex flex-column">
             <img
@@ -94,6 +121,7 @@ const NuestroPueblo = () => {
               className="mb-3 rounded-2"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
+              ref={(el) => (galleryImagesRef.current[5] = el)}
             />
 
             <img
@@ -102,6 +130,7 @@ const NuestroPueblo = () => {
               className="mb-3 rounded-2"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
+              ref={(el) => (galleryImagesRef.current[6] = el)}
             />
           </div>
           <img
@@ -110,6 +139,7 @@ const NuestroPueblo = () => {
             className="w-50 mb-3 pe-3 rounded-2"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
+            ref={(el) => (galleryImagesRef.current[7] = el)}
           />
           <img
             src={galeria7}
@@ -117,6 +147,7 @@ const NuestroPueblo = () => {
             className="w-50 mb-3 rounded-2"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
+            ref={(el) => (galleryImagesRef.current[8] = el)}
           />
           <img
             src={galeria9}
@@ -124,6 +155,7 @@ const NuestroPueblo = () => {
             className="w-100 mb-3 rounded-2"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
+            ref={(el) => (galleryImagesRef.current[9] = el)}
           />
           <img
             src={galeria5}
@@ -131,6 +163,7 @@ const NuestroPueblo = () => {
             className="w-50 mb-3 pe-3 rounded-2"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
+            ref={(el) => (galleryImagesRef.current[10] = el)}
           />
           <img
             src={galeria_2}
@@ -138,6 +171,7 @@ const NuestroPueblo = () => {
             className="w-50 mb-3 rounded-2"
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
+            ref={(el) => (galleryImagesRef.current[11] = el)}
           />
         </article>
         <div
@@ -152,7 +186,7 @@ const NuestroPueblo = () => {
               {/* <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                             </button> */}
 
-              <div id="carouselExample" className="carousel slide">
+              <div ref={carouselRef} id="carouselExample" className="carousel slide">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
                     <img src={galeria1} class="d-block w-100" alt="..." />
