@@ -1,0 +1,35 @@
+footer {
+    background-color: black;
+    color:#FDEF70 ; 
+
+    hr{
+        background-color:#FDEF70;
+        opacity: 1;
+    }
+    p , a, hr {
+        color: #FDEF70 ;
+    }
+    .contacto{
+        width: 90%;
+        img{
+            width: 100px;
+        }
+        a{
+            margin-left: 1rem;
+        }
+    }
+
+    .telefonos__utiles{
+        ul{
+            padding: 0;
+            
+            li{
+                list-style: none;
+                margin-top: 1rem;
+            }
+        }
+        
+    }
+
+}
+

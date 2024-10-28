@@ -21,7 +21,7 @@ h3{
 }
 
 .card__Hospedaje{
-    background-color: #a6c6c7;
+    border: #065658 2px solid;
     border-radius: 10px;
 
     .llamar{
@@ -33,7 +33,9 @@ h3{
         width: 30vw;
         height: 100%;
         border-radius: 0 10px 10px 0;
+
     }
+    
 }
 
 .card__gastronomia{

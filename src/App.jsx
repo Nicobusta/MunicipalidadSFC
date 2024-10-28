@@ -8,6 +8,8 @@ import Secretarias from './components/gobierno/Secretarias';
 import Consejo from './components/gobierno/Consejo';
 import Tribunal from './components/gobierno/Tribunal';
 import Fechaslocales from './Fechaslocales';
+import Footer from './components/Footer';
+
 
 
 function App() {
@@ -26,6 +28,7 @@ function App() {
             <Route path="/gobierno/tribunal" element={<Tribunal/>}/>
 
        </Routes>
+        <Footer/> 
     </>
   )
 }

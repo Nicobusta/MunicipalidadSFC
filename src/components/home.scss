@@ -1,0 +1,30 @@
+.banner__inicio{
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .img__principal{
+        width: 100%;
+        height: 100vh;
+        background-image: url(/public/bannerInicio.jpg);
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+        background-position: center 30% ;
+    }
+    h1{
+        position:absolute;
+        bottom: 20vh;
+        width: 80%;
+        text-align: center;
+        color: white;
+    }
+
+    svg{
+        position:absolute;
+        bottom: 12vh;
+        fill:white;
+        width: 3rem;
+    }
+}
+
