@@ -1,18 +1,18 @@
 import React, { useEffect, useRef } from "react";
 import "./nuestroPueblo.scss";
 import banner from "../assets/bannerNuestroPueblo.jpg";
-import galeria1 from "../assets/galeria/galeria1.jpeg";
-import galeria2 from "../assets/galeria/galeria2.jpeg";
-import galeria3 from "../assets/galeria/galeria3.jpeg";
-import galeria4 from "../assets/galeria/galeria4.jpeg";
-import galeria5 from "../assets/galeria/galeria5.jpeg";
-import galeria6 from "../assets/galeria/galeria6.jpeg";
-import galeria7 from "../assets/galeria/galeria7.jpeg";
-import galeria8 from "../assets/galeria/galeria8.jpeg";
-import galeria9 from "../assets/galeria/galeria9.jpeg";
-import galeria_1 from "../assets/galeria/galeria_1.jpeg";
-import galeria_2 from "../assets/galeria/galeria_2.jpg";
-import galeria_3 from "../assets/galeria/galeria_3.jpeg";
+import galeria1 from "../assets/galeria/galeria1.webp";
+import galeria2 from "../assets/galeria/galeria2.webp";
+import galeria3 from "../assets/galeria/galeria3.webp";
+import galeria4 from "../assets/galeria/galeria4.webp";
+import galeria5 from "../assets/galeria/galeria5.webp";
+import galeria6 from "../assets/galeria/galeria6.webp";
+import galeria7 from "../assets/galeria/galeria7.webp";
+import galeria8 from "../assets/galeria/galeria8.webp";
+import galeria9 from "../assets/galeria/galeria9.webp";
+import galeria_1 from "../assets/galeria/galeria_1.webp";
+import galeria_2 from "../assets/galeria/galeria_2.webp";
+import galeria_3 from "../assets/galeria/galeria_3.webp";
 /* ALOJAMIENTOS */
 import lasPencas from "../assets/alojamientos/lasPencas.jpeg";
 import piedraMora from "../assets/alojamientos/piedraMora.jpg";
@@ -22,6 +22,7 @@ import garribia from "../assets/alojamientos/garribia.png";
 import encuentros from "../assets/gastronomia/encuentros.jpg";
 import elcruce from "../assets/gastronomia/elcruce.jpg";
 import nacha from "../assets/gastronomia/nacha.png";
+import laprevia from "../assets/gastronomia/laprevia.jpeg";
 
 const NuestroPueblo = () => {
   const carouselRef = useRef(null);
@@ -746,7 +747,7 @@ const NuestroPueblo = () => {
             <div class="d-flex justify-content-center">
                 {/* LA PREVIA */}
                 <div className="card__gastronomia my-3 d-flex flex-column text-center">
-                  <img src="" alt="La previa" />
+                  <img src={laprevia} alt="La previa" />
                   <a
                     className="llamar py-2"
                     href="tel:+5493513732290"

@@ -1,13 +1,13 @@
 import {Routes, Route } from 'react-router-dom';
 import Navbar from "./components/Navbar.jsx"
 import Home from "./components/Home"
-import Atractvos from "./components/Atractvos"
+import Atractivos from "./components/Atractvos"
 import NuestroPueblo from "./components/NuestroPueblo"
 import Intendencia from './components/gobierno/Intendencia';
 import Secretarias from './components/gobierno/Secretarias';
 import Consejo from './components/gobierno/Consejo';
 import Tribunal from './components/gobierno/Tribunal';
-import Fechaslocales from './Fechaslocales';
+import Fechaslocales from './components/Fechaslocales';
 import Footer from './components/Footer';
 
 
@@ -19,7 +19,7 @@ function App() {
        <Navbar/>
        <Routes>  
             <Route path="/" element={<Home/>}/>
-            <Route path="/atractvos" element={<Atractvos/>}/>
+            <Route path="/atractivos" element={<Atractivos/>}/>
             <Route path="/nuestropueblo" element={<NuestroPueblo/>}/>
             <Route path="/fechaslocales" element={<Fechaslocales/>}/>
             <Route path="/gobierno/intendencia" element={<Intendencia/>}/>

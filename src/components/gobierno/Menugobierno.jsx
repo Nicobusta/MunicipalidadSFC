@@ -24,9 +24,9 @@ const MenuGobierno = () => {
           <li className={`py-2 ps-3 ${isActive('/gobierno/consejo') ? 'active' : ''}`}>
             <Link to="/gobierno/consejo">Consejo deliberante</Link>
           </li>
-          <li className={`py-2 ps-3 ${isActive('/gobierno/como-pensamos') ? 'active' : ''}`}>
+          {/* <li className={`py-2 ps-3 ${isActive('/gobierno/como-pensamos') ? 'active' : ''}`}>
             <Link to="/gobierno/como-pensamos">Como pensamos</Link>
-          </li>
+          </li> */}
         </ul>
       </section>
     </>
