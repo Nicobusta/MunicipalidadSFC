@@ -1,5 +1,10 @@
 #consejo, #tribunal{
     font-family: 'Poppins', sans-serif;
+    h3, h4{
+        background: none;
+        color: black;
+        border-radius: 0%;
+    }
 
     .intro{
         width: 85%;
@@ -22,5 +27,11 @@
             box-shadow: rgba(50, 50, 93, 0.25) 0px -10px 20px 2px, rgba(0, 0, 0, 0.3) 0px 20px 30px -10px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
         }
         
+    }
+}
+
+@media (min-width: 768px) {
+    #consejo, #tribunal{
+        width: 55%;
     }
 }

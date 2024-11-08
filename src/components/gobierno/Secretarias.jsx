@@ -18,7 +18,7 @@ const Secretarias = () => {
       <MenuGobierno/>
     </div>
      
-      <section className="intendencia bg-body-secondary d-flex py-5">
+      <section className="intendencia bg-body-secondary d-flex py-5 mx-md-auto justify-content-md-center">
         <article className="d-flex aling-items-center justify-content-center">
           <img className="avatar mx-4 my-auto" src={seba} alt="intendente Sebastian Argañaraz" />
           <div className="d-flex flex-column">
@@ -81,7 +81,7 @@ const Secretarias = () => {
         </article>
       </section>
 
-      <section className="card__secretaria mt-5 mx-auto bg-body-tertiary">
+      <section className="card__secretaria m-5 mx-auto bg-body-tertiary">
         <h3>Secretario de Gobierno</h3>
         <article className="d-flex aling-items-center">
           <img className="avatar my-auto" src={gaspar} alt="" />
@@ -257,7 +257,7 @@ const Secretarias = () => {
       </section>
 
       
-      <section className="card__secretaria mt-5 mx-auto bg-body-tertiary">
+      <section className="card__secretaria mt-5 mx-auto bg-body-tertiary mb-4">
         <h3>Secretario de Relaciones Institucionales</h3>
         <article className="d-flex aling-items-center">
           <img className="avatar" src={lucas} alt="" />
@@ -292,7 +292,7 @@ const Secretarias = () => {
         </article>
       </section>
       
-      <section className="card__secretaria mt-5 mx-auto bg-body-tertiary">
+    {/*   <section className="card__secretaria mt-5 mx-auto bg-body-tertiary">
         <h3>Secretarios de Deportes</h3>
         <article className="d-flex aling-items-center">
           <img className="avatar" src={eze} alt="" />
@@ -356,7 +356,7 @@ const Secretarias = () => {
              </div>
           </div>
         </article>
-      </section>
+      </section> */}
     </>
   );
 };

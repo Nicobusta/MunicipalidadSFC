@@ -17,7 +17,7 @@ function LeerMas({ text }) {
   return (
     
     <div>
-      <p>{isExpanded ? text : `${text.slice(0, previewLength)}...`}</p>
+      <p className='mx-md-auto '>{isExpanded ? text : `${text.slice(0, previewLength)}...`}</p>
       <button className="ver__mas" onClick={handleToggle}>
         {isExpanded ? 'Leer menos' : 'Leer más'}
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-right-short" viewBox="0 0 16 16">
@@ -58,7 +58,7 @@ const Fechaslocales = () => {
 
   return (
     <>
-    <section className="banersNP">
+      <section className="banersNP">
         <img
           src={banner}
           alt="Iglesia San Francisco Solano"
@@ -67,19 +67,19 @@ const Fechaslocales = () => {
         <div></div>
         <h1 className="w-100 text-center">Fechas Tradicionales</h1>
       </section>
-    <div className='timeline mx-auto'>
-      {tarjetasData.map((tarjeta) => (
-        <section className='card__historia'>
-          <div key={tarjeta.id} className="tarjeta">
-          <div className='circulo'></div>
-          <img src={tarjeta.img} alt="" />
-          <h3>{tarjeta.titulo}</h3>
-          <LeerMas text={tarjeta.text} />
-        </div>
-        </section>
-      ))}
-        
-    </div>
+      <div className='timeline mx-auto'>
+        {tarjetasData.map((tarjeta) => (
+          <section className='card__historia'>
+            <div key={tarjeta.id} className="tarjeta">
+            <div className='circulo'></div>
+            <img src={tarjeta.img} alt="" />
+            <h3>{tarjeta.titulo}</h3>
+            <LeerMas text={tarjeta.text} />
+          </div>
+          </section>
+        ))}
+          
+      </div>
     </>
   )
 }

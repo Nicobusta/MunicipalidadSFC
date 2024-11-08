@@ -4,9 +4,14 @@
     position: relative;
     margin: 3rem 0.5rem;
 
+    h3{
+        border-radius: 0% 0% 5px 5px;
+    }
+
     img{
         width: 100%;
         height: auto;
+        border-radius:5px 5px 0 0;
     }
     &::before{
         position: absolute;
@@ -55,4 +60,15 @@ width: 70%;
     border:none;
     background-color: white;
     color:#065658;
+}
+
+@media (min-width: 768px) {
+    .timeline{
+        position: relative;
+        width: 45%;
+        }
+    p{
+        text-align: center;
+        width: 90%;
+    }
 }

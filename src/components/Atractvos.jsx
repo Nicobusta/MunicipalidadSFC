@@ -16,7 +16,7 @@ const Atractvos = () => {
             <img className="mb-3" src={portada} alt="casona perteneciente al Circuito Historico"/>
             <h1 className="w-100 text-center">ATRACTIVOS TURISTICOS</h1>
         </section>
-      <section>
+      <section className='atractivos'>
         <article className='card__atractivo text-center mx-auto pb-3'>
             <img src={iglesia} alt="colage fotos Iglesia San Francisco Solano"/>
             <h4 className='py-3'>Iglesia San Francisco Solano</h4>
@@ -60,10 +60,18 @@ const Atractvos = () => {
             En agosto de 1810, el Coronel Antonio Gonzáles Balcarce escribió allí el comunicado oficial dirigido al Coronel Ortiz de Ocampo, informando que el ex Virrey Liniers había sido detenido en la Posta de Las Piedritas. </p>
         </article>
       </section>
-      <section>
+      <section >
         <h3 className='py-3'>GUIAS TURISTICOS</h3>
-            <section className='my-3'>
-                <article className='guias d-flex justify-content-center align-items-center mx-auto'>
+            <section className='my-3 d-md-flex justify-content-md-evenly'>
+                <article className='guias d-flex justify-content-center align-items-center mx-auto my-4 mx-md-0'>
+                    <img className="mx-2 my-4" src="avatarMujer.webp" alt="" />
+                    <div className='text-center mx-3'>
+                        <h4 className='mb-4'>Guias Turisticos</h4>
+                        <a className="py-2 px-4" href="tel:+54935">Contactar</a>
+                    </div>
+                </article>
+
+                <article className='guias d-flex justify-content-center align-items-center mx-auto my-4 mx-md-0'>
                     <img className="mx-2 my-4" src="avatarMujer.webp" alt="" />
                     <div className='text-center mx-3'>
                         <h4 className='mb-4'>Guias Turisticos</h4>

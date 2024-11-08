@@ -20,7 +20,6 @@ const Tribunal = () => {
                   <img src="/avatarMujer.webp" roundedCircle />
                   <div className='ms-5'>
                     <h4>María del Carmen Córdoba</h4>
-                    <p>Descripcion</p>
                   </div>
               </div>
 
@@ -28,7 +27,6 @@ const Tribunal = () => {
                   <img src="/avatarHombre.webp" roundedCircle />
                   <div className='ms-5'>
                     <h4>Juan Miguel Montenegro</h4>
-                    <p>Descripcion</p>
                   </div>
               </div>
 
@@ -36,7 +34,6 @@ const Tribunal = () => {
                   <img src="/avatarHombre.webp" roundedCircle />
                   <div className='ms-5'>
                     <h4>Miguel Alfredo Montes</h4>
-                    <p>Descripcion</p>
                   </div>
               </div>
           </article>

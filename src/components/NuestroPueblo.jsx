@@ -47,8 +47,10 @@ const NuestroPueblo = () => {
       });
     };
   }, []);
+
+  
   return (
-    <main>
+    <main className="overflow-hidden">
       <section className="banersNP">
         <img
           className=""
@@ -60,7 +62,7 @@ const NuestroPueblo = () => {
         <div></div>
         <h1 className="w-100 text-center">Nuestro Pueblo</h1>
       </section>
-      <p className="text-center mx-4 my-4">
+      <p className="text-center mx-4 my-4 mx-md-auto my-md-5">
         San Francisco del Chañar es una localidad situada al norte de la
         provincia de Córdoba, a 200 km de la ciudad capital. A ella se llega a
         través de ruta 9, y luego tomando la ruta 22 por 30 km más. Dicha
@@ -71,7 +73,7 @@ const NuestroPueblo = () => {
       {/* COMIENZO DE LA GALERIA */}
       <section>
         <h3 className="py-3">POSTALES</h3>
-        <article className="galeria d-flex flex-wrap px-3">
+        <article className="galeria d-flex flex-wrap px-3 mx-md-auto">
           <img
             src={galeria1}
             alt=""
@@ -259,7 +261,7 @@ const NuestroPueblo = () => {
 {/* COMIENZO DE ALOJAMIENTOS */}
       <section>
           <h3 className="py-3">ALOJAMIENTOS</h3>
-          <article>
+          <article className="w-100 d-md-flex flex-wrap justify-content-md-center px-sm-5 px-md-0">
             {/* las pencas */}
             <div className="card__Hospedaje m-3 d-flex justify-content-between">
               <div className="w-100 py-2 d-flex flex-column justify-content-evenly text-center">
@@ -413,7 +415,7 @@ const NuestroPueblo = () => {
                   </svg>
                 </a>
               </div>
-              <div>
+              <div className="card__Hospedaje__img">
                 <img src={piedraMora} alt="hotel piedra mora" />
               </div>
             </div>

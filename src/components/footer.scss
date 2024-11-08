@@ -1,7 +1,12 @@
 footer {
     background-color: black;
     color:#FDEF70 ; 
+    position: relative;
 
+    h4{
+        background: none;
+        color: #FDEF70;
+    }
     hr{
         background-color:#FDEF70;
         opacity: 1;
@@ -12,7 +17,7 @@ footer {
     .contacto{
         width: 90%;
         img{
-            width: 80px;
+            width: 60px;
         }
         a{
             margin-left: 1rem;
@@ -27,6 +32,23 @@ footer {
                 list-style: none;
                 margin-top: 1rem;
             }
+        }
+        
+    }
+
+    .logo__footer{
+        position: absolute;
+        right: 1rem;
+    }
+
+    @media (min-width: 992px) {
+        li{
+            margin-inline: 1rem;
+            
+        }
+
+        .logo__footer{
+            right: 3rem;
         }
         
     }

@@ -7,7 +7,7 @@ import "./calendar.scss"
 const Calendar = () => {
  
   return (
-    <div className='mx-2 my-4'>
+    <div className='mx-2 mx-md-5 my-4'>
         <FullCalendar
       plugins={[ dayGridPlugin ]}
       initialView="dayGridMonth"
@@ -15,8 +15,9 @@ const Calendar = () => {
       /* weekends={false} */ //Desabilita los fines de semanas
         events={
             [
-                { title: 'event 1', date: '2024-10-21',backgroundColor: '#ff0000', borderColor: 'transparent', textColor: 'black' },
-                { title: 'event 2', date: '2024-10-22',backgroundColor: 'lightgreen' } 
+              { title: 'Jornada para adultos', date: '2024-11-17',backgroundColor: '#065658', borderColor: 'transparent' },
+              { title: 'Prefestival', date: '2024-12-21',backgroundColor: '#065658', borderColor: 'transparent' },
+              { title: 'Prefestival', date: '2024-12-22',backgroundColor: '#065658', borderColor: 'transparent' } 
             ]
             
         }

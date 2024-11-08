@@ -1,7 +1,22 @@
-.dia-destacado {
-    background-color: #ffcccc !important; /* Cambia el color de fondo del día */
-  }
-  
-  .dia-importante {
-    background-color: #ccffcc !important; /* Otro color de fondo */
-  }
+.fc-header-toolbar {
+    width: 100%;
+    .fc-toolbar-title{
+      font-size: 1.3rem;
+    }
+
+  .fc-toolbar-chunk{
+      .fc-button {
+        font-size: 0.9rem; 
+        background-color:#065658 
+      }
+      .fc-today-button{
+        opacity: 1;
+      }
+    } 
+}
+
+.fc-col-header-cell-cushion{
+  background-color:#065658;
+  width: 100%;
+  color: white;
+}

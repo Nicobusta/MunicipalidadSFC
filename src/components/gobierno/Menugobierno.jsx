@@ -19,10 +19,10 @@ const MenuGobierno = () => {
             <Link to="/gobierno/organigrama">Organigrama</Link>
           </li>
           <li className={`py-2 ps-3 ${isActive('/gobierno/tribunal') ? 'active' : ''}`}>
-            <Link to="/gobierno/tribunal">Tribunal de cuentas</Link>
+            <Link to="/gobierno/tribunal">Tribunal de Cuentas</Link>
           </li>
           <li className={`py-2 ps-3 ${isActive('/gobierno/consejo') ? 'active' : ''}`}>
-            <Link to="/gobierno/consejo">Consejo deliberante</Link>
+            <Link to="/gobierno/consejo">Consejo Deliberante</Link>
           </li>
           {/* <li className={`py-2 ps-3 ${isActive('/gobierno/como-pensamos') ? 'active' : ''}`}>
             <Link to="/gobierno/como-pensamos">Como pensamos</Link>
