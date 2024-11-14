@@ -10,25 +10,25 @@ const Navbar = () => {
   const isActiveGobierno = (path) => location.pathname.startsWith(path);
 
   return (
-    <nav class="navbar navbar-expand-lg sticky-top" style={{backgroundColor: '#065658'}}>
-        <div class="container-fluid">
+    <nav className="navbar navbar-expand-lg sticky-top" style={{backgroundColor: '#065658'}}>
+        <div className="container-fluid">
 
-            <Link to={"/"} class=" ms-lg-4 navbar-brand">
+            <Link to={"/"} className=" ms-lg-4 navbar-brand">
                 <img src={logo} alt="Logo San Francisco del Chañar" width="auto" height="40"/>
             </Link>
 
-            <button class="navbar-toggler hamburger" style={{border:"none"}} type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon" style={{filter: "invert(100%)"}}></span>
+            <button className="navbar-toggler hamburger" style={{border:"none"}} type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon" style={{filter: "invert(100%)"}}></span>
             </button>
 
-            <div class="offcanvas offcanvas-start h-50" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div className="offcanvas offcanvas-start h-50" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 
-              <div class="offcanvas-header">
+              <div className="offcanvas-header">
                 <img src={logo} alt="Logo San Francisco del Chañar" width="auto" height="40"/>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
               </div>
 
-              <div class="offcanvas-body d-flex flex-column align-items-center justify-content-evenly flex-lg-row d-lg-inline-block text-lg-end">
+              <div className="offcanvas-body d-flex flex-column align-items-center justify-content-evenly flex-lg-row d-lg-inline-block text-lg-end">
                <Link to={"/"} className={`${isActive('/') ? 'active' : ''} navbar-brand`}>Inicio</Link>
                <Link to={"/nuestropueblo"} className={`${isActive('/nuestropueblo') ? 'active' : ''} navbar-brand`}>Nuestro Pueblo</Link>
                <Link to={"/atractivos"} className={`${isActive('/atractivos') ? 'active' : ''} navbar-brand`}>¿Que Visitar?</Link>

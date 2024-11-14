@@ -25,10 +25,23 @@
         bottom: 12vh;
         fill:white;
         width: 3rem;
+        animation: subirBajar 2s ease-in-out infinite;
     }
+
+    @keyframes subirBajar {
+        0% {
+          transform: translateY(0); /* Posición inicial */
+        }
+        50% {
+          transform: translateY(-20px); /* Subir */
+        }
+        100% {
+          transform: translateY(0); /* Volver a la posición inicial */
+        }
+      }
 }
 
-.noticias{
+.noticias, .eventos{
     h4{
         color:white;
         background: rgb(0,138,140);

@@ -1,6 +1,8 @@
 import React from 'react'
 import './consejo.scss'
 import MenuGobierno from './Menugobierno'
+import avatarMujer from '/avatarMujer.webp'
+import avatarHombre from '/avatarHombre.webp'
 
 const Tribunal = () => {
   return (
@@ -17,21 +19,21 @@ const Tribunal = () => {
               <h3 className='w-100 py-4'>TE PRESENTAMOS A LAS PERSONAS QUE LO INTEGRAN</h3>
 
               <div className='card__integrantes w-75 mx-auto mt-4 pb-4 d-flex justify-content-start align-items-center'>
-                  <img src="/avatarMujer.webp" roundedCircle />
+                  <img src={avatarMujer} roundedCircle />
                   <div className='ms-5'>
                     <h4>María del Carmen Córdoba</h4>
                   </div>
               </div>
 
               <div className='card__integrantes w-75 mx-auto mt-4 pb-4 d-flex justify-content-start align-items-center'>
-                  <img src="/avatarHombre.webp" roundedCircle />
+                  <img src={avatarHombre} roundedCircle />
                   <div className='ms-5'>
                     <h4>Juan Miguel Montenegro</h4>
                   </div>
               </div>
 
               <div className='card__integrantes w-75 mx-auto mt-4 pb-4 d-flex justify-content-start align-items-center'>
-                  <img src="/avatarHombre.webp" roundedCircle />
+                  <img src={avatarHombre} roundedCircle />
                   <div className='ms-5'>
                     <h4>Miguel Alfredo Montes</h4>
                   </div>
