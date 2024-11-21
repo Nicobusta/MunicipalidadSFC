@@ -17,7 +17,7 @@ const Atractvos = () => {
        Aos.init(); 
     },[]) 
   return (
-    <main>
+    <main className='overflow-hidden'>
         <section className='portada__atractivos'>
             <img className="mb-3" src={portada} alt="casona perteneciente al Circuito Historico"/>
             <h1 className="w-100 text-center">ATRACTIVOS TURISTICOS</h1>
@@ -72,18 +72,18 @@ const Atractvos = () => {
                 <article data-aos="fade-up" data-aos-duration="3000" className='guias d-flex justify-content-center align-items-center mx-auto my-4 mx-md-0'>
                     <img className="mx-2 my-4" src={avatarMujer} alt="" />
                     <div className='text-center mx-3'>
-                        <h4 className='mb-4'>Guias Turisticos</h4>
-                        <a className="py-2 px-4" href="tel:+54935">Contactar</a>
+                        <h4 className='mb-4'>Laura Gomez</h4>
+                        <a className="py-2 px-4" href="tel:+5493522410156">Contactar</a>
                     </div>
                 </article>
 
-                <article data-aos="fade-up" data-aos-duration="3000" className='guias d-flex justify-content-center align-items-center mx-auto my-4 mx-md-0'>
+                {/* <article data-aos="fade-up" data-aos-duration="3000" className='guias d-flex justify-content-center align-items-center mx-auto my-4 mx-md-0'>
                     <img className="mx-2 my-4" src={avatarMujer} alt="" />
                     <div className='text-center mx-3'>
                         <h4 className='mb-4'>Guias Turisticos</h4>
                         <a className="py-2 px-4" href="tel:+54935">Contactar</a>
                     </div>
-                </article>
+                </article> */}
             </section>
       </section>
     </main>

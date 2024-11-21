@@ -1,4 +1,6 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
+import Aos from 'aos'
+import "aos/dist/aos.css"
 import "./nuestroPueblo.scss";
 import banner from "../assets/bannerNuestroPueblo.jpg";
 import galeria1 from "../assets/galeria/galeria1.webp";
@@ -24,26 +26,38 @@ import elcruce from "../assets/gastronomia/elcruce.jpg";
 import nacha from "../assets/gastronomia/nacha.png";
 import laprevia from "../assets/gastronomia/laprevia.jpeg";
 
+
 const NuestroPueblo = () => {
   const carouselRef = useRef(null);
   const galleryImagesRef = useRef([]);
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 768);
 
-  useEffect(() => {
-    // Inicializa el carrusel de Bootstrap
+  useEffect(() => { 
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth > 768);
+    };
+  
+    window.addEventListener("resize", handleResize);
+  
+    Aos.init();
     const carousel = new window.bootstrap.Carousel(carouselRef.current);
-
-    // Asigna el evento click a cada imagen
+  
+    const handlers = []; // Almacena las referencias de los event listeners
+  
     galleryImagesRef.current.forEach((img, index) => {
-      img.addEventListener('click', () => {
-        // Muestra el slide correspondiente en el carrusel
-        carousel.to(index);
-      });
+      if (img) {
+        const handleImageClick = () => carousel.to(index);
+        img.addEventListener("click", handleImageClick);
+        handlers.push({ img, handleImageClick });
+      }
     });
-
-    // Limpia los event listeners al desmontar el componente
+  
     return () => {
-      galleryImagesRef.current.forEach((img) => {
-        img.removeEventListener('click', () => carousel.to());
+      window.removeEventListener("resize", handleResize);
+      handlers.forEach(({ img, handleImageClick }) => {
+        if (img) {
+          img.removeEventListener("click", handleImageClick);
+        }
       });
     };
   }, []);
@@ -62,7 +76,7 @@ const NuestroPueblo = () => {
         <div></div>
         <h1 className="w-100 text-center">Nuestro Pueblo</h1>
       </section>
-      <p className="text-center mx-4 my-4 mx-md-auto my-md-5">
+      <p data-aos="zoom-in" className="text-center mx-4 my-4 mx-md-auto my-md-5">
         San Francisco del Chañar es una localidad situada al norte de la
         provincia de Córdoba, a 200 km de la ciudad capital. A ella se llega a
         través de ruta 9, y luego tomando la ruta 22 por 30 km más. Dicha
@@ -72,9 +86,10 @@ const NuestroPueblo = () => {
 
       {/* COMIENZO DE LA GALERIA */}
       <section>
-        <h3 className="py-3">POSTALES</h3>
+        <h3 data-aos="zoom-in" className="py-3">POSTALES</h3>
         <article className="galeria d-flex flex-wrap px-3 mx-md-auto">
           <img
+            data-aos="zoom-out"
             src={galeria1}
             alt=""
             className="w-100 my-3 rounded-2"
@@ -84,6 +99,7 @@ const NuestroPueblo = () => {
           />
           <div className="w-50 d-flex flex-column pe-3">
             <img
+              data-aos="zoom-out-right"
               src={galeria2}
               alt=""
               className="mb-3 rounded-2"
@@ -93,6 +109,7 @@ const NuestroPueblo = () => {
             />
 
             <img
+              data-aos="zoom-out-right"
               src={galeria3}
               alt=""
               className="mb-3 rounded-2"
@@ -102,6 +119,7 @@ const NuestroPueblo = () => {
             />
           </div>
           <img
+            data-aos="zoom-out-left"
             src={galeria4}
             alt=""
             className="w-50 mb-3 rounded-2"
@@ -110,6 +128,7 @@ const NuestroPueblo = () => {
             ref={(el) => (galleryImagesRef.current[3] = el)}
           />
           <img
+          data-aos="zoom-out-right"
             src={galeria6}
             alt=""
             className="w-50 mb-3 pe-3 rounded-2"
@@ -119,6 +138,7 @@ const NuestroPueblo = () => {
           />
           <div className="w-50 d-flex flex-column">
             <img
+            data-aos="zoom-out-left"
               src={galeria8}
               alt=""
               className="mb-3 rounded-2"
@@ -128,6 +148,7 @@ const NuestroPueblo = () => {
             />
 
             <img
+            data-aos="zoom-out-left"
               src={galeria_1}
               alt=""
               className="mb-3 rounded-2"
@@ -137,6 +158,7 @@ const NuestroPueblo = () => {
             />
           </div>
           <img
+            data-aos="zoom-out-right"
             src={galeria_3}
             alt=""
             className="w-50 mb-3 pe-3 rounded-2"
@@ -145,6 +167,7 @@ const NuestroPueblo = () => {
             ref={(el) => (galleryImagesRef.current[7] = el)}
           />
           <img
+            data-aos="zoom-out-left"
             src={galeria7}
             alt=""
             className="w-50 mb-3 rounded-2"
@@ -153,6 +176,7 @@ const NuestroPueblo = () => {
             ref={(el) => (galleryImagesRef.current[8] = el)}
           />
           <img
+          data-aos="zoom-out"
             src={galeria9}
             alt=""
             className="w-100 mb-3 rounded-2"
@@ -161,6 +185,7 @@ const NuestroPueblo = () => {
             ref={(el) => (galleryImagesRef.current[9] = el)}
           />
           <img
+          data-aos="zoom-out-right"
             src={galeria5}
             alt=""
             className="w-50 mb-3 pe-3 rounded-2"
@@ -169,6 +194,7 @@ const NuestroPueblo = () => {
             ref={(el) => (galleryImagesRef.current[10] = el)}
           />
           <img
+          data-aos="zoom-out-left"
             src={galeria_2}
             alt=""
             className="w-50 mb-3 rounded-2"
@@ -186,71 +212,71 @@ const NuestroPueblo = () => {
         >
           <div className="modal-dialog modal-dialog-centered">
             <div className="modal-content">
-              {/* <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+              {/* <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close">
                             </button> */}
 
               <div ref={carouselRef} id="carouselExample" className="carousel slide">
-                <div class="carousel-inner">
-                  <div class="carousel-item active">
-                    <img src={galeria1} class="d-block w-100" alt="..." />
+                <div className="carousel-inner">
+                  <div className="carousel-item active">
+                    <img src={galeria1} className="d-block w-100" alt="..." />
                   </div>
-                  <div class="carousel-item">
-                    <img src={galeria2} class="d-block w-100" alt="..." />
+                  <div className="carousel-item">
+                    <img src={galeria2} className="d-block w-100" alt="..." />
                   </div>
-                  <div class="carousel-item">
-                    <img src={galeria3} class="d-block w-100" alt="..." />
+                  <div className="carousel-item">
+                    <img src={galeria3} className="d-block w-100" alt="..." />
                   </div>
-                  <div class="carousel-item">
-                    <img src={galeria4} class="d-block w-100" alt="..." />
+                  <div className="carousel-item">
+                    <img src={galeria4} className="d-block w-100" alt="..." />
                   </div>
-                  <div class="carousel-item">
-                    <img src={galeria6} class="d-block w-100" alt="..." />
+                  <div className="carousel-item">
+                    <img src={galeria6} className="d-block w-100" alt="..." />
                   </div>
-                  <div class="carousel-item">
-                    <img src={galeria8} class="d-block w-100" alt="..." />
+                  <div className="carousel-item">
+                    <img src={galeria8} className="d-block w-100" alt="..." />
                   </div>
-                  <div class="carousel-item">
-                    <img src={galeria_1} class="d-block w-100" alt="..." />
+                  <div className="carousel-item">
+                    <img src={galeria_1} className="d-block w-100" alt="..." />
                   </div>
-                  <div class="carousel-item">
-                    <img src={galeria_3} class="d-block w-100" alt="..." />
+                  <div className="carousel-item">
+                    <img src={galeria_3} className="d-block w-100" alt="..." />
                   </div>
-                  <div class="carousel-item">
-                    <img src={galeria7} class="d-block w-100" alt="..." />
+                  <div className="carousel-item">
+                    <img src={galeria7} className="d-block w-100" alt="..." />
                   </div>
-                  <div class="carousel-item">
-                    <img src={galeria9} class="d-block w-100" alt="..." />
+                  <div className="carousel-item">
+                    <img src={galeria9} className="d-block w-100" alt="..." />
                   </div>
-                  <div class="carousel-item">
-                    <img src={galeria5} class="d-block w-100" alt="..." />
+                  <div className="carousel-item">
+                    <img src={galeria5} className="d-block w-100" alt="..." />
                   </div>
-                  <div class="carousel-item">
-                    <img src={galeria_2} class="d-block w-100" alt="..." />
+                  <div className="carousel-item">
+                    <img src={galeria_2} className="d-block w-100" alt="..." />
                   </div>
                 </div>
                 <button
-                  class="carousel-control-prev"
+                  className="carousel-control-prev"
                   type="button"
                   data-bs-target="#carouselExample"
                   data-bs-slide="prev"
                 >
                   <span
-                    class="carousel-control-prev-icon"
+                    className="carousel-control-prev-icon"
                     aria-hidden="true"
                   ></span>
-                  <span class="visually-hidden">Previous</span>
+                  <span className="visually-hidden">Previous</span>
                 </button>
                 <button
-                  class="carousel-control-next"
+                  className="carousel-control-next"
                   type="button"
                   data-bs-target="#carouselExample"
                   data-bs-slide="next"
                 >
                   <span
-                    class="carousel-control-next-icon"
+                    className="carousel-control-next-icon"
                     aria-hidden="true"
                   ></span>
-                  <span class="visually-hidden">Next</span>
+                  <span className="visually-hidden">Next</span>
                 </button>
               </div>
             </div>
@@ -263,7 +289,7 @@ const NuestroPueblo = () => {
           <h3 className="py-3">ALOJAMIENTOS</h3>
           <article className="w-100 d-md-flex flex-wrap justify-content-md-center px-sm-5 px-md-0">
             {/* las pencas */}
-            <div className="card__Hospedaje m-3 d-flex justify-content-between">
+            <div data-aos="fade-right" className="card__Hospedaje m-3 d-flex justify-content-between">
               <div className="w-100 py-2 d-flex flex-column justify-content-evenly text-center">
                 <h4>LAS PENCAS</h4>
                 <div>
@@ -342,7 +368,7 @@ const NuestroPueblo = () => {
             </div>
 
             {/* piedra mora */}
-            <div className="card__Hospedaje m-3 d-flex justify-content-between">
+            <div data-aos="fade-left" className="card__Hospedaje m-3 d-flex justify-content-between">
               <div className="w-100 py-2 d-flex flex-column justify-content-evenly text-center">
                 <h4>PIEDRA MORA</h4>
                 <div>
@@ -421,7 +447,7 @@ const NuestroPueblo = () => {
             </div>
 
             {/* rosario garribia */}
-            <div className="card__Hospedaje m-3 d-flex justify-content-between">
+            <div data-aos="fade-right" className="card__Hospedaje m-3 d-flex justify-content-between">
               <div className="w-100 py-2 d-flex flex-column justify-content-evenly text-center">
                 <h4>ROSARIO GARRIBIA</h4>
                 <div>
@@ -499,7 +525,7 @@ const NuestroPueblo = () => {
               </div>
             </div>
             {/* san francisco */}
-            <div className="card__Hospedaje m-3 d-flex justify-content-between">
+            <div data-aos="fade-left" className="card__Hospedaje m-3 d-flex justify-content-between">
               <div className="w-100 py-2 d-flex flex-column justify-content-evenly text-center">
                 <h4>SAN FRANCISCO</h4>
                 <div>
@@ -577,7 +603,7 @@ const NuestroPueblo = () => {
               </div>
             </div>
             {/* hotel damian */}
-            <div className="card__Hospedaje m-3 d-flex justify-content-between">
+            <div data-aos="fade-right" className="card__Hospedaje m-3 d-flex justify-content-between">
               <div className="w-100 py-2 d-flex flex-column justify-content-evenly text-center">
                 <h4>HOTEL DAMIAN</h4>
                 <div>
@@ -657,7 +683,7 @@ const NuestroPueblo = () => {
               </div>
             </div>
             {/* miguel heredia */}
-            <div className="card__Hospedaje m-3 d-flex justify-content-between">
+            <div data-aos="fade-left" className="card__Hospedaje m-3 d-flex justify-content-between">
               <div className="w-100 py-2 d-flex flex-column justify-content-evenly text-center">
                 <h4>MIGUEL HEREDIA</h4>
                 <div>
@@ -738,160 +764,297 @@ const NuestroPueblo = () => {
             </div>
           </article>
       </section>
+{/* COMIENZO DE GASTRONOMIA */}
+        {isLargeScreen ? (
+          <section>
+          <h3 className="py-3">GASTRONOMIA</h3>
 
-    <section>
-        <h3 className="py-3">GASTRONOMIA</h3>
+              <div data-aos="fade-up" className="d-flex justify-content-evenly">
+                  {/* LA PREVIA */}
+                  <div className="card__gastronomia my-3 d-flex flex-column text-center">
+                    <img src={laprevia} alt="La previa" />
+                    <a
+                      className="llamar py-2"
+                      href="tel:+5493513732290"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.48124 1.99214C5.39269 1.87823 5.28091 1.78447 5.15334 1.71707C5.02577 1.64968 4.88531 1.61021 4.74131 1.60127C4.59731 1.59233 4.45306 1.61414 4.31813 1.66523C4.1832 1.71633 4.06069 1.79555 3.95874 1.89764L2.40774 3.45014C1.68324 4.17614 1.41624 5.20364 1.73274 6.10514C3.04783 9.8358 5.18447 13.2232 7.98474 16.0171C10.7786 18.8174 14.1661 20.954 17.8967 22.2691C18.7982 22.5856 19.8257 22.3186 20.5517 21.5941L22.1027 20.0431C22.2048 19.9412 22.284 19.8187 22.3351 19.6837C22.3862 19.5488 22.408 19.4046 22.3991 19.2606C22.3902 19.1166 22.3507 18.9761 22.2833 18.8485C22.2159 18.721 22.1221 18.6092 22.0082 18.5206L18.5477 15.8296C18.4259 15.7354 18.2844 15.6701 18.1337 15.6384C17.9831 15.6067 17.8272 15.6095 17.6777 15.6466L14.3927 16.4671C13.9542 16.576 13.495 16.5698 13.0596 16.4492C12.6242 16.3286 12.2272 16.0976 11.9072 15.7786L8.22324 12.0931C7.90401 11.7733 7.67276 11.3764 7.55188 10.941C7.431 10.5056 7.42458 10.0463 7.53324 9.60764L8.35524 6.32264C8.39237 6.17321 8.3952 6.01732 8.36351 5.86665C8.33182 5.71598 8.26642 5.57444 8.17224 5.45264L5.48124 1.99214ZM2.82624 0.766637C3.08873 0.504062 3.40408 0.300333 3.75134 0.168979C4.09861 0.0376255 4.46985 -0.0183475 4.84041 0.00477688C5.21097 0.0279013 5.57237 0.129594 5.90061 0.303102C6.22885 0.476611 6.51642 0.717965 6.74424 1.01114L9.43524 4.47014C9.92874 5.10464 10.1027 5.93114 9.90774 6.71114L9.08724 9.99614C9.04511 10.1663 9.04755 10.3444 9.09432 10.5134C9.14108 10.6823 9.2306 10.8364 9.35424 10.9606L13.0397 14.6461C13.1642 14.77 13.3184 14.8597 13.4877 14.9065C13.6569 14.9532 13.8354 14.9555 14.0057 14.9131L17.2892 14.0926C17.6742 13.997 18.0758 13.9898 18.464 14.0716C18.8521 14.1534 19.2167 14.3222 19.5302 14.5651L22.9892 17.2561C24.2327 18.2236 24.3467 20.0611 23.2337 21.1726L21.6827 22.7236C20.5727 23.8336 18.9137 24.3211 17.3672 23.7766C13.4082 22.3855 9.81404 20.1193 6.85224 17.1466C3.87979 14.1853 1.61356 10.5916 0.222236 6.63314C-0.320764 5.08814 0.166736 3.42764 1.27674 2.31764L2.82624 0.766637Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                  {/* ENCUENTROS */}
+                  <div className="card__gastronomia my-3 d-flex flex-column text-center">
+                    <img src={encuentros} alt="bar encuentos" />
+                    <a
+                      className="llamar py-2"
+                      href="tel:+5493522650648"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.48124 1.99214C5.39269 1.87823 5.28091 1.78447 5.15334 1.71707C5.02577 1.64968 4.88531 1.61021 4.74131 1.60127C4.59731 1.59233 4.45306 1.61414 4.31813 1.66523C4.1832 1.71633 4.06069 1.79555 3.95874 1.89764L2.40774 3.45014C1.68324 4.17614 1.41624 5.20364 1.73274 6.10514C3.04783 9.8358 5.18447 13.2232 7.98474 16.0171C10.7786 18.8174 14.1661 20.954 17.8967 22.2691C18.7982 22.5856 19.8257 22.3186 20.5517 21.5941L22.1027 20.0431C22.2048 19.9412 22.284 19.8187 22.3351 19.6837C22.3862 19.5488 22.408 19.4046 22.3991 19.2606C22.3902 19.1166 22.3507 18.9761 22.2833 18.8485C22.2159 18.721 22.1221 18.6092 22.0082 18.5206L18.5477 15.8296C18.4259 15.7354 18.2844 15.6701 18.1337 15.6384C17.9831 15.6067 17.8272 15.6095 17.6777 15.6466L14.3927 16.4671C13.9542 16.576 13.495 16.5698 13.0596 16.4492C12.6242 16.3286 12.2272 16.0976 11.9072 15.7786L8.22324 12.0931C7.90401 11.7733 7.67276 11.3764 7.55188 10.941C7.431 10.5056 7.42458 10.0463 7.53324 9.60764L8.35524 6.32264C8.39237 6.17321 8.3952 6.01732 8.36351 5.86665C8.33182 5.71598 8.26642 5.57444 8.17224 5.45264L5.48124 1.99214ZM2.82624 0.766637C3.08873 0.504062 3.40408 0.300333 3.75134 0.168979C4.09861 0.0376255 4.46985 -0.0183475 4.84041 0.00477688C5.21097 0.0279013 5.57237 0.129594 5.90061 0.303102C6.22885 0.476611 6.51642 0.717965 6.74424 1.01114L9.43524 4.47014C9.92874 5.10464 10.1027 5.93114 9.90774 6.71114L9.08724 9.99614C9.04511 10.1663 9.04755 10.3444 9.09432 10.5134C9.14108 10.6823 9.2306 10.8364 9.35424 10.9606L13.0397 14.6461C13.1642 14.77 13.3184 14.8597 13.4877 14.9065C13.6569 14.9532 13.8354 14.9555 14.0057 14.9131L17.2892 14.0926C17.6742 13.997 18.0758 13.9898 18.464 14.0716C18.8521 14.1534 19.2167 14.3222 19.5302 14.5651L22.9892 17.2561C24.2327 18.2236 24.3467 20.0611 23.2337 21.1726L21.6827 22.7236C20.5727 23.8336 18.9137 24.3211 17.3672 23.7766C13.4082 22.3855 9.81404 20.1193 6.85224 17.1466C3.87979 14.1853 1.61356 10.5916 0.222236 6.63314C-0.320764 5.08814 0.166736 3.42764 1.27674 2.31764L2.82624 0.766637Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                  {/* EL CRUCE */}
+                  <div className="card__gastronomia my-3 d-flex flex-column text-center">
+                    <img src={elcruce} alt="bar el cruce" />
+                    <a
+                      className="llamar py-2"
+                      href="tel:+5493516528371"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.48124 1.99214C5.39269 1.87823 5.28091 1.78447 5.15334 1.71707C5.02577 1.64968 4.88531 1.61021 4.74131 1.60127C4.59731 1.59233 4.45306 1.61414 4.31813 1.66523C4.1832 1.71633 4.06069 1.79555 3.95874 1.89764L2.40774 3.45014C1.68324 4.17614 1.41624 5.20364 1.73274 6.10514C3.04783 9.8358 5.18447 13.2232 7.98474 16.0171C10.7786 18.8174 14.1661 20.954 17.8967 22.2691C18.7982 22.5856 19.8257 22.3186 20.5517 21.5941L22.1027 20.0431C22.2048 19.9412 22.284 19.8187 22.3351 19.6837C22.3862 19.5488 22.408 19.4046 22.3991 19.2606C22.3902 19.1166 22.3507 18.9761 22.2833 18.8485C22.2159 18.721 22.1221 18.6092 22.0082 18.5206L18.5477 15.8296C18.4259 15.7354 18.2844 15.6701 18.1337 15.6384C17.9831 15.6067 17.8272 15.6095 17.6777 15.6466L14.3927 16.4671C13.9542 16.576 13.495 16.5698 13.0596 16.4492C12.6242 16.3286 12.2272 16.0976 11.9072 15.7786L8.22324 12.0931C7.90401 11.7733 7.67276 11.3764 7.55188 10.941C7.431 10.5056 7.42458 10.0463 7.53324 9.60764L8.35524 6.32264C8.39237 6.17321 8.3952 6.01732 8.36351 5.86665C8.33182 5.71598 8.26642 5.57444 8.17224 5.45264L5.48124 1.99214ZM2.82624 0.766637C3.08873 0.504062 3.40408 0.300333 3.75134 0.168979C4.09861 0.0376255 4.46985 -0.0183475 4.84041 0.00477688C5.21097 0.0279013 5.57237 0.129594 5.90061 0.303102C6.22885 0.476611 6.51642 0.717965 6.74424 1.01114L9.43524 4.47014C9.92874 5.10464 10.1027 5.93114 9.90774 6.71114L9.08724 9.99614C9.04511 10.1663 9.04755 10.3444 9.09432 10.5134C9.14108 10.6823 9.2306 10.8364 9.35424 10.9606L13.0397 14.6461C13.1642 14.77 13.3184 14.8597 13.4877 14.9065C13.6569 14.9532 13.8354 14.9555 14.0057 14.9131L17.2892 14.0926C17.6742 13.997 18.0758 13.9898 18.464 14.0716C18.8521 14.1534 19.2167 14.3222 19.5302 14.5651L22.9892 17.2561C24.2327 18.2236 24.3467 20.0611 23.2337 21.1726L21.6827 22.7236C20.5727 23.8336 18.9137 24.3211 17.3672 23.7766C13.4082 22.3855 9.81404 20.1193 6.85224 17.1466C3.87979 14.1853 1.61356 10.5916 0.222236 6.63314C-0.320764 5.08814 0.166736 3.42764 1.27674 2.31764L2.82624 0.766637Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+              
+                  {/* NACHA */}
+                  <div className="card__gastronomia my-3 d-flex flex-column text-center">
+                    <img src={nacha} alt="logo nacha food tru" />
+                    <a
+                      className="llamar py-2"
+                      href="tel:+5493522456756"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.48124 1.99214C5.39269 1.87823 5.28091 1.78447 5.15334 1.71707C5.02577 1.64968 4.88531 1.61021 4.74131 1.60127C4.59731 1.59233 4.45306 1.61414 4.31813 1.66523C4.1832 1.71633 4.06069 1.79555 3.95874 1.89764L2.40774 3.45014C1.68324 4.17614 1.41624 5.20364 1.73274 6.10514C3.04783 9.8358 5.18447 13.2232 7.98474 16.0171C10.7786 18.8174 14.1661 20.954 17.8967 22.2691C18.7982 22.5856 19.8257 22.3186 20.5517 21.5941L22.1027 20.0431C22.2048 19.9412 22.284 19.8187 22.3351 19.6837C22.3862 19.5488 22.408 19.4046 22.3991 19.2606C22.3902 19.1166 22.3507 18.9761 22.2833 18.8485C22.2159 18.721 22.1221 18.6092 22.0082 18.5206L18.5477 15.8296C18.4259 15.7354 18.2844 15.6701 18.1337 15.6384C17.9831 15.6067 17.8272 15.6095 17.6777 15.6466L14.3927 16.4671C13.9542 16.576 13.495 16.5698 13.0596 16.4492C12.6242 16.3286 12.2272 16.0976 11.9072 15.7786L8.22324 12.0931C7.90401 11.7733 7.67276 11.3764 7.55188 10.941C7.431 10.5056 7.42458 10.0463 7.53324 9.60764L8.35524 6.32264C8.39237 6.17321 8.3952 6.01732 8.36351 5.86665C8.33182 5.71598 8.26642 5.57444 8.17224 5.45264L5.48124 1.99214ZM2.82624 0.766637C3.08873 0.504062 3.40408 0.300333 3.75134 0.168979C4.09861 0.0376255 4.46985 -0.0183475 4.84041 0.00477688C5.21097 0.0279013 5.57237 0.129594 5.90061 0.303102C6.22885 0.476611 6.51642 0.717965 6.74424 1.01114L9.43524 4.47014C9.92874 5.10464 10.1027 5.93114 9.90774 6.71114L9.08724 9.99614C9.04511 10.1663 9.04755 10.3444 9.09432 10.5134C9.14108 10.6823 9.2306 10.8364 9.35424 10.9606L13.0397 14.6461C13.1642 14.77 13.3184 14.8597 13.4877 14.9065C13.6569 14.9532 13.8354 14.9555 14.0057 14.9131L17.2892 14.0926C17.6742 13.997 18.0758 13.9898 18.464 14.0716C18.8521 14.1534 19.2167 14.3222 19.5302 14.5651L22.9892 17.2561C24.2327 18.2236 24.3467 20.0611 23.2337 21.1726L21.6827 22.7236C20.5727 23.8336 18.9137 24.3211 17.3672 23.7766C13.4082 22.3855 9.81404 20.1193 6.85224 17.1466C3.87979 14.1853 1.61356 10.5916 0.222236 6.63314C-0.320764 5.08814 0.166736 3.42764 1.27674 2.31764L2.82624 0.766637Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                  {/* BAR LA TERMINAL */}
+                  <div className="card__gastronomia my-3 d-flex flex-column text-center">
+                    <img src="" alt="bar la terminal" />
+                    <a
+                      className="llamar py-2"
+                      href="tel:+5493512109971"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.48124 1.99214C5.39269 1.87823 5.28091 1.78447 5.15334 1.71707C5.02577 1.64968 4.88531 1.61021 4.74131 1.60127C4.59731 1.59233 4.45306 1.61414 4.31813 1.66523C4.1832 1.71633 4.06069 1.79555 3.95874 1.89764L2.40774 3.45014C1.68324 4.17614 1.41624 5.20364 1.73274 6.10514C3.04783 9.8358 5.18447 13.2232 7.98474 16.0171C10.7786 18.8174 14.1661 20.954 17.8967 22.2691C18.7982 22.5856 19.8257 22.3186 20.5517 21.5941L22.1027 20.0431C22.2048 19.9412 22.284 19.8187 22.3351 19.6837C22.3862 19.5488 22.408 19.4046 22.3991 19.2606C22.3902 19.1166 22.3507 18.9761 22.2833 18.8485C22.2159 18.721 22.1221 18.6092 22.0082 18.5206L18.5477 15.8296C18.4259 15.7354 18.2844 15.6701 18.1337 15.6384C17.9831 15.6067 17.8272 15.6095 17.6777 15.6466L14.3927 16.4671C13.9542 16.576 13.495 16.5698 13.0596 16.4492C12.6242 16.3286 12.2272 16.0976 11.9072 15.7786L8.22324 12.0931C7.90401 11.7733 7.67276 11.3764 7.55188 10.941C7.431 10.5056 7.42458 10.0463 7.53324 9.60764L8.35524 6.32264C8.39237 6.17321 8.3952 6.01732 8.36351 5.86665C8.33182 5.71598 8.26642 5.57444 8.17224 5.45264L5.48124 1.99214ZM2.82624 0.766637C3.08873 0.504062 3.40408 0.300333 3.75134 0.168979C4.09861 0.0376255 4.46985 -0.0183475 4.84041 0.00477688C5.21097 0.0279013 5.57237 0.129594 5.90061 0.303102C6.22885 0.476611 6.51642 0.717965 6.74424 1.01114L9.43524 4.47014C9.92874 5.10464 10.1027 5.93114 9.90774 6.71114L9.08724 9.99614C9.04511 10.1663 9.04755 10.3444 9.09432 10.5134C9.14108 10.6823 9.2306 10.8364 9.35424 10.9606L13.0397 14.6461C13.1642 14.77 13.3184 14.8597 13.4877 14.9065C13.6569 14.9532 13.8354 14.9555 14.0057 14.9131L17.2892 14.0926C17.6742 13.997 18.0758 13.9898 18.464 14.0716C18.8521 14.1534 19.2167 14.3222 19.5302 14.5651L22.9892 17.2561C24.2327 18.2236 24.3467 20.0611 23.2337 21.1726L21.6827 22.7236C20.5727 23.8336 18.9137 24.3211 17.3672 23.7766C13.4082 22.3855 9.81404 20.1193 6.85224 17.1466C3.87979 14.1853 1.61356 10.5916 0.222236 6.63314C-0.320764 5.08814 0.166736 3.42764 1.27674 2.31764L2.82624 0.766637Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                  {/* BAR-HOTEL DAMINA */}
+                  <div className="card__gastronomia my-3 d-flex flex-column text-center">
+                    <img src="" alt="BAR DAMINA" />
+                    <a
+                      className="llamar py-2"
+                      href="tel:+5493522648201"
+                    >
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.48124 1.99214C5.39269 1.87823 5.28091 1.78447 5.15334 1.71707C5.02577 1.64968 4.88531 1.61021 4.74131 1.60127C4.59731 1.59233 4.45306 1.61414 4.31813 1.66523C4.1832 1.71633 4.06069 1.79555 3.95874 1.89764L2.40774 3.45014C1.68324 4.17614 1.41624 5.20364 1.73274 6.10514C3.04783 9.8358 5.18447 13.2232 7.98474 16.0171C10.7786 18.8174 14.1661 20.954 17.8967 22.2691C18.7982 22.5856 19.8257 22.3186 20.5517 21.5941L22.1027 20.0431C22.2048 19.9412 22.284 19.8187 22.3351 19.6837C22.3862 19.5488 22.408 19.4046 22.3991 19.2606C22.3902 19.1166 22.3507 18.9761 22.2833 18.8485C22.2159 18.721 22.1221 18.6092 22.0082 18.5206L18.5477 15.8296C18.4259 15.7354 18.2844 15.6701 18.1337 15.6384C17.9831 15.6067 17.8272 15.6095 17.6777 15.6466L14.3927 16.4671C13.9542 16.576 13.495 16.5698 13.0596 16.4492C12.6242 16.3286 12.2272 16.0976 11.9072 15.7786L8.22324 12.0931C7.90401 11.7733 7.67276 11.3764 7.55188 10.941C7.431 10.5056 7.42458 10.0463 7.53324 9.60764L8.35524 6.32264C8.39237 6.17321 8.3952 6.01732 8.36351 5.86665C8.33182 5.71598 8.26642 5.57444 8.17224 5.45264L5.48124 1.99214ZM2.82624 0.766637C3.08873 0.504062 3.40408 0.300333 3.75134 0.168979C4.09861 0.0376255 4.46985 -0.0183475 4.84041 0.00477688C5.21097 0.0279013 5.57237 0.129594 5.90061 0.303102C6.22885 0.476611 6.51642 0.717965 6.74424 1.01114L9.43524 4.47014C9.92874 5.10464 10.1027 5.93114 9.90774 6.71114L9.08724 9.99614C9.04511 10.1663 9.04755 10.3444 9.09432 10.5134C9.14108 10.6823 9.2306 10.8364 9.35424 10.9606L13.0397 14.6461C13.1642 14.77 13.3184 14.8597 13.4877 14.9065C13.6569 14.9532 13.8354 14.9555 14.0057 14.9131L17.2892 14.0926C17.6742 13.997 18.0758 13.9898 18.464 14.0716C18.8521 14.1534 19.2167 14.3222 19.5302 14.5651L22.9892 17.2561C24.2327 18.2236 24.3467 20.0611 23.2337 21.1726L21.6827 22.7236C20.5727 23.8336 18.9137 24.3211 17.3672 23.7766C13.4082 22.3855 9.81404 20.1193 6.85224 17.1466C3.87979 14.1853 1.61356 10.5916 0.222236 6.63314C-0.320764 5.08814 0.166736 3.42764 1.27674 2.31764L2.82624 0.766637Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </a>
+                  </div>           
+              </div>
+          </section>
+      ) : (
+        <section>
+          <h3 className="py-3">GASTRONOMIA</h3>
 
-        <div id="carouselExampleIndicators" class="carousel slide">
- 
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-            <div class="d-flex justify-content-center">
-                {/* LA PREVIA */}
-                <div className="card__gastronomia my-3 d-flex flex-column text-center">
-                  <img src={laprevia} alt="La previa" />
-                  <a
-                    className="llamar py-2"
-                    href="tel:+5493513732290"
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+          <div id="carouselExampleIndicators" data-aos="fade-up" className="carousel slide">
+  
+            <div className="carousel-inner">
+              <div className="carousel-item active">
+              <div className="d-flex justify-content-center">
+                  {/* LA PREVIA */}
+                  <div className="card__gastronomia my-3 d-flex flex-column text-center">
+                    <img src={laprevia} alt="La previa" />
+                    <a
+                      className="llamar py-2"
+                      href="tel:+5493513732290"
                     >
-                      <path
-                        d="M5.48124 1.99214C5.39269 1.87823 5.28091 1.78447 5.15334 1.71707C5.02577 1.64968 4.88531 1.61021 4.74131 1.60127C4.59731 1.59233 4.45306 1.61414 4.31813 1.66523C4.1832 1.71633 4.06069 1.79555 3.95874 1.89764L2.40774 3.45014C1.68324 4.17614 1.41624 5.20364 1.73274 6.10514C3.04783 9.8358 5.18447 13.2232 7.98474 16.0171C10.7786 18.8174 14.1661 20.954 17.8967 22.2691C18.7982 22.5856 19.8257 22.3186 20.5517 21.5941L22.1027 20.0431C22.2048 19.9412 22.284 19.8187 22.3351 19.6837C22.3862 19.5488 22.408 19.4046 22.3991 19.2606C22.3902 19.1166 22.3507 18.9761 22.2833 18.8485C22.2159 18.721 22.1221 18.6092 22.0082 18.5206L18.5477 15.8296C18.4259 15.7354 18.2844 15.6701 18.1337 15.6384C17.9831 15.6067 17.8272 15.6095 17.6777 15.6466L14.3927 16.4671C13.9542 16.576 13.495 16.5698 13.0596 16.4492C12.6242 16.3286 12.2272 16.0976 11.9072 15.7786L8.22324 12.0931C7.90401 11.7733 7.67276 11.3764 7.55188 10.941C7.431 10.5056 7.42458 10.0463 7.53324 9.60764L8.35524 6.32264C8.39237 6.17321 8.3952 6.01732 8.36351 5.86665C8.33182 5.71598 8.26642 5.57444 8.17224 5.45264L5.48124 1.99214ZM2.82624 0.766637C3.08873 0.504062 3.40408 0.300333 3.75134 0.168979C4.09861 0.0376255 4.46985 -0.0183475 4.84041 0.00477688C5.21097 0.0279013 5.57237 0.129594 5.90061 0.303102C6.22885 0.476611 6.51642 0.717965 6.74424 1.01114L9.43524 4.47014C9.92874 5.10464 10.1027 5.93114 9.90774 6.71114L9.08724 9.99614C9.04511 10.1663 9.04755 10.3444 9.09432 10.5134C9.14108 10.6823 9.2306 10.8364 9.35424 10.9606L13.0397 14.6461C13.1642 14.77 13.3184 14.8597 13.4877 14.9065C13.6569 14.9532 13.8354 14.9555 14.0057 14.9131L17.2892 14.0926C17.6742 13.997 18.0758 13.9898 18.464 14.0716C18.8521 14.1534 19.2167 14.3222 19.5302 14.5651L22.9892 17.2561C24.2327 18.2236 24.3467 20.0611 23.2337 21.1726L21.6827 22.7236C20.5727 23.8336 18.9137 24.3211 17.3672 23.7766C13.4082 22.3855 9.81404 20.1193 6.85224 17.1466C3.87979 14.1853 1.61356 10.5916 0.222236 6.63314C-0.320764 5.08814 0.166736 3.42764 1.27674 2.31764L2.82624 0.766637Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </a>
-                </div>
-                {/* ENCUENTROS */}
-                <div className="card__gastronomia m-3 d-flex flex-column text-center">
-                  <img src={encuentros} alt="bar encuentos" />
-                  <a
-                    className="llamar py-2"
-                    href="tel:+5493522650648"
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.48124 1.99214C5.39269 1.87823 5.28091 1.78447 5.15334 1.71707C5.02577 1.64968 4.88531 1.61021 4.74131 1.60127C4.59731 1.59233 4.45306 1.61414 4.31813 1.66523C4.1832 1.71633 4.06069 1.79555 3.95874 1.89764L2.40774 3.45014C1.68324 4.17614 1.41624 5.20364 1.73274 6.10514C3.04783 9.8358 5.18447 13.2232 7.98474 16.0171C10.7786 18.8174 14.1661 20.954 17.8967 22.2691C18.7982 22.5856 19.8257 22.3186 20.5517 21.5941L22.1027 20.0431C22.2048 19.9412 22.284 19.8187 22.3351 19.6837C22.3862 19.5488 22.408 19.4046 22.3991 19.2606C22.3902 19.1166 22.3507 18.9761 22.2833 18.8485C22.2159 18.721 22.1221 18.6092 22.0082 18.5206L18.5477 15.8296C18.4259 15.7354 18.2844 15.6701 18.1337 15.6384C17.9831 15.6067 17.8272 15.6095 17.6777 15.6466L14.3927 16.4671C13.9542 16.576 13.495 16.5698 13.0596 16.4492C12.6242 16.3286 12.2272 16.0976 11.9072 15.7786L8.22324 12.0931C7.90401 11.7733 7.67276 11.3764 7.55188 10.941C7.431 10.5056 7.42458 10.0463 7.53324 9.60764L8.35524 6.32264C8.39237 6.17321 8.3952 6.01732 8.36351 5.86665C8.33182 5.71598 8.26642 5.57444 8.17224 5.45264L5.48124 1.99214ZM2.82624 0.766637C3.08873 0.504062 3.40408 0.300333 3.75134 0.168979C4.09861 0.0376255 4.46985 -0.0183475 4.84041 0.00477688C5.21097 0.0279013 5.57237 0.129594 5.90061 0.303102C6.22885 0.476611 6.51642 0.717965 6.74424 1.01114L9.43524 4.47014C9.92874 5.10464 10.1027 5.93114 9.90774 6.71114L9.08724 9.99614C9.04511 10.1663 9.04755 10.3444 9.09432 10.5134C9.14108 10.6823 9.2306 10.8364 9.35424 10.9606L13.0397 14.6461C13.1642 14.77 13.3184 14.8597 13.4877 14.9065C13.6569 14.9532 13.8354 14.9555 14.0057 14.9131L17.2892 14.0926C17.6742 13.997 18.0758 13.9898 18.464 14.0716C18.8521 14.1534 19.2167 14.3222 19.5302 14.5651L22.9892 17.2561C24.2327 18.2236 24.3467 20.0611 23.2337 21.1726L21.6827 22.7236C20.5727 23.8336 18.9137 24.3211 17.3672 23.7766C13.4082 22.3855 9.81404 20.1193 6.85224 17.1466C3.87979 14.1853 1.61356 10.5916 0.222236 6.63314C-0.320764 5.08814 0.166736 3.42764 1.27674 2.31764L2.82624 0.766637Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                  {/* ENCUENTROS */}
+                  <div className="card__gastronomia m-3 d-flex flex-column text-center">
+                    <img src={encuentros} alt="bar encuentos" />
+                    <a
+                      className="llamar py-2"
+                      href="tel:+5493522650648"
                     >
-                      <path
-                        d="M5.48124 1.99214C5.39269 1.87823 5.28091 1.78447 5.15334 1.71707C5.02577 1.64968 4.88531 1.61021 4.74131 1.60127C4.59731 1.59233 4.45306 1.61414 4.31813 1.66523C4.1832 1.71633 4.06069 1.79555 3.95874 1.89764L2.40774 3.45014C1.68324 4.17614 1.41624 5.20364 1.73274 6.10514C3.04783 9.8358 5.18447 13.2232 7.98474 16.0171C10.7786 18.8174 14.1661 20.954 17.8967 22.2691C18.7982 22.5856 19.8257 22.3186 20.5517 21.5941L22.1027 20.0431C22.2048 19.9412 22.284 19.8187 22.3351 19.6837C22.3862 19.5488 22.408 19.4046 22.3991 19.2606C22.3902 19.1166 22.3507 18.9761 22.2833 18.8485C22.2159 18.721 22.1221 18.6092 22.0082 18.5206L18.5477 15.8296C18.4259 15.7354 18.2844 15.6701 18.1337 15.6384C17.9831 15.6067 17.8272 15.6095 17.6777 15.6466L14.3927 16.4671C13.9542 16.576 13.495 16.5698 13.0596 16.4492C12.6242 16.3286 12.2272 16.0976 11.9072 15.7786L8.22324 12.0931C7.90401 11.7733 7.67276 11.3764 7.55188 10.941C7.431 10.5056 7.42458 10.0463 7.53324 9.60764L8.35524 6.32264C8.39237 6.17321 8.3952 6.01732 8.36351 5.86665C8.33182 5.71598 8.26642 5.57444 8.17224 5.45264L5.48124 1.99214ZM2.82624 0.766637C3.08873 0.504062 3.40408 0.300333 3.75134 0.168979C4.09861 0.0376255 4.46985 -0.0183475 4.84041 0.00477688C5.21097 0.0279013 5.57237 0.129594 5.90061 0.303102C6.22885 0.476611 6.51642 0.717965 6.74424 1.01114L9.43524 4.47014C9.92874 5.10464 10.1027 5.93114 9.90774 6.71114L9.08724 9.99614C9.04511 10.1663 9.04755 10.3444 9.09432 10.5134C9.14108 10.6823 9.2306 10.8364 9.35424 10.9606L13.0397 14.6461C13.1642 14.77 13.3184 14.8597 13.4877 14.9065C13.6569 14.9532 13.8354 14.9555 14.0057 14.9131L17.2892 14.0926C17.6742 13.997 18.0758 13.9898 18.464 14.0716C18.8521 14.1534 19.2167 14.3222 19.5302 14.5651L22.9892 17.2561C24.2327 18.2236 24.3467 20.0611 23.2337 21.1726L21.6827 22.7236C20.5727 23.8336 18.9137 24.3211 17.3672 23.7766C13.4082 22.3855 9.81404 20.1193 6.85224 17.1466C3.87979 14.1853 1.61356 10.5916 0.222236 6.63314C-0.320764 5.08814 0.166736 3.42764 1.27674 2.31764L2.82624 0.766637Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </a>
-                </div>
-                {/* EL CRUCE */}
-                <div className="card__gastronomia my-3 d-flex flex-column text-center">
-                  <img src={elcruce} alt="bar el cruce" />
-                  <a
-                    className="llamar py-2"
-                    href="tel:+5493516528371"
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.48124 1.99214C5.39269 1.87823 5.28091 1.78447 5.15334 1.71707C5.02577 1.64968 4.88531 1.61021 4.74131 1.60127C4.59731 1.59233 4.45306 1.61414 4.31813 1.66523C4.1832 1.71633 4.06069 1.79555 3.95874 1.89764L2.40774 3.45014C1.68324 4.17614 1.41624 5.20364 1.73274 6.10514C3.04783 9.8358 5.18447 13.2232 7.98474 16.0171C10.7786 18.8174 14.1661 20.954 17.8967 22.2691C18.7982 22.5856 19.8257 22.3186 20.5517 21.5941L22.1027 20.0431C22.2048 19.9412 22.284 19.8187 22.3351 19.6837C22.3862 19.5488 22.408 19.4046 22.3991 19.2606C22.3902 19.1166 22.3507 18.9761 22.2833 18.8485C22.2159 18.721 22.1221 18.6092 22.0082 18.5206L18.5477 15.8296C18.4259 15.7354 18.2844 15.6701 18.1337 15.6384C17.9831 15.6067 17.8272 15.6095 17.6777 15.6466L14.3927 16.4671C13.9542 16.576 13.495 16.5698 13.0596 16.4492C12.6242 16.3286 12.2272 16.0976 11.9072 15.7786L8.22324 12.0931C7.90401 11.7733 7.67276 11.3764 7.55188 10.941C7.431 10.5056 7.42458 10.0463 7.53324 9.60764L8.35524 6.32264C8.39237 6.17321 8.3952 6.01732 8.36351 5.86665C8.33182 5.71598 8.26642 5.57444 8.17224 5.45264L5.48124 1.99214ZM2.82624 0.766637C3.08873 0.504062 3.40408 0.300333 3.75134 0.168979C4.09861 0.0376255 4.46985 -0.0183475 4.84041 0.00477688C5.21097 0.0279013 5.57237 0.129594 5.90061 0.303102C6.22885 0.476611 6.51642 0.717965 6.74424 1.01114L9.43524 4.47014C9.92874 5.10464 10.1027 5.93114 9.90774 6.71114L9.08724 9.99614C9.04511 10.1663 9.04755 10.3444 9.09432 10.5134C9.14108 10.6823 9.2306 10.8364 9.35424 10.9606L13.0397 14.6461C13.1642 14.77 13.3184 14.8597 13.4877 14.9065C13.6569 14.9532 13.8354 14.9555 14.0057 14.9131L17.2892 14.0926C17.6742 13.997 18.0758 13.9898 18.464 14.0716C18.8521 14.1534 19.2167 14.3222 19.5302 14.5651L22.9892 17.2561C24.2327 18.2236 24.3467 20.0611 23.2337 21.1726L21.6827 22.7236C20.5727 23.8336 18.9137 24.3211 17.3672 23.7766C13.4082 22.3855 9.81404 20.1193 6.85224 17.1466C3.87979 14.1853 1.61356 10.5916 0.222236 6.63314C-0.320764 5.08814 0.166736 3.42764 1.27674 2.31764L2.82624 0.766637Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                  {/* EL CRUCE */}
+                  <div className="card__gastronomia my-3 d-flex flex-column text-center">
+                    <img src={elcruce} alt="bar el cruce" />
+                    <a
+                      className="llamar py-2"
+                      href="tel:+5493516528371"
                     >
-                      <path
-                        d="M5.48124 1.99214C5.39269 1.87823 5.28091 1.78447 5.15334 1.71707C5.02577 1.64968 4.88531 1.61021 4.74131 1.60127C4.59731 1.59233 4.45306 1.61414 4.31813 1.66523C4.1832 1.71633 4.06069 1.79555 3.95874 1.89764L2.40774 3.45014C1.68324 4.17614 1.41624 5.20364 1.73274 6.10514C3.04783 9.8358 5.18447 13.2232 7.98474 16.0171C10.7786 18.8174 14.1661 20.954 17.8967 22.2691C18.7982 22.5856 19.8257 22.3186 20.5517 21.5941L22.1027 20.0431C22.2048 19.9412 22.284 19.8187 22.3351 19.6837C22.3862 19.5488 22.408 19.4046 22.3991 19.2606C22.3902 19.1166 22.3507 18.9761 22.2833 18.8485C22.2159 18.721 22.1221 18.6092 22.0082 18.5206L18.5477 15.8296C18.4259 15.7354 18.2844 15.6701 18.1337 15.6384C17.9831 15.6067 17.8272 15.6095 17.6777 15.6466L14.3927 16.4671C13.9542 16.576 13.495 16.5698 13.0596 16.4492C12.6242 16.3286 12.2272 16.0976 11.9072 15.7786L8.22324 12.0931C7.90401 11.7733 7.67276 11.3764 7.55188 10.941C7.431 10.5056 7.42458 10.0463 7.53324 9.60764L8.35524 6.32264C8.39237 6.17321 8.3952 6.01732 8.36351 5.86665C8.33182 5.71598 8.26642 5.57444 8.17224 5.45264L5.48124 1.99214ZM2.82624 0.766637C3.08873 0.504062 3.40408 0.300333 3.75134 0.168979C4.09861 0.0376255 4.46985 -0.0183475 4.84041 0.00477688C5.21097 0.0279013 5.57237 0.129594 5.90061 0.303102C6.22885 0.476611 6.51642 0.717965 6.74424 1.01114L9.43524 4.47014C9.92874 5.10464 10.1027 5.93114 9.90774 6.71114L9.08724 9.99614C9.04511 10.1663 9.04755 10.3444 9.09432 10.5134C9.14108 10.6823 9.2306 10.8364 9.35424 10.9606L13.0397 14.6461C13.1642 14.77 13.3184 14.8597 13.4877 14.9065C13.6569 14.9532 13.8354 14.9555 14.0057 14.9131L17.2892 14.0926C17.6742 13.997 18.0758 13.9898 18.464 14.0716C18.8521 14.1534 19.2167 14.3222 19.5302 14.5651L22.9892 17.2561C24.2327 18.2236 24.3467 20.0611 23.2337 21.1726L21.6827 22.7236C20.5727 23.8336 18.9137 24.3211 17.3672 23.7766C13.4082 22.3855 9.81404 20.1193 6.85224 17.1466C3.87979 14.1853 1.61356 10.5916 0.222236 6.63314C-0.320764 5.08814 0.166736 3.42764 1.27674 2.31764L2.82624 0.766637Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </a>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.48124 1.99214C5.39269 1.87823 5.28091 1.78447 5.15334 1.71707C5.02577 1.64968 4.88531 1.61021 4.74131 1.60127C4.59731 1.59233 4.45306 1.61414 4.31813 1.66523C4.1832 1.71633 4.06069 1.79555 3.95874 1.89764L2.40774 3.45014C1.68324 4.17614 1.41624 5.20364 1.73274 6.10514C3.04783 9.8358 5.18447 13.2232 7.98474 16.0171C10.7786 18.8174 14.1661 20.954 17.8967 22.2691C18.7982 22.5856 19.8257 22.3186 20.5517 21.5941L22.1027 20.0431C22.2048 19.9412 22.284 19.8187 22.3351 19.6837C22.3862 19.5488 22.408 19.4046 22.3991 19.2606C22.3902 19.1166 22.3507 18.9761 22.2833 18.8485C22.2159 18.721 22.1221 18.6092 22.0082 18.5206L18.5477 15.8296C18.4259 15.7354 18.2844 15.6701 18.1337 15.6384C17.9831 15.6067 17.8272 15.6095 17.6777 15.6466L14.3927 16.4671C13.9542 16.576 13.495 16.5698 13.0596 16.4492C12.6242 16.3286 12.2272 16.0976 11.9072 15.7786L8.22324 12.0931C7.90401 11.7733 7.67276 11.3764 7.55188 10.941C7.431 10.5056 7.42458 10.0463 7.53324 9.60764L8.35524 6.32264C8.39237 6.17321 8.3952 6.01732 8.36351 5.86665C8.33182 5.71598 8.26642 5.57444 8.17224 5.45264L5.48124 1.99214ZM2.82624 0.766637C3.08873 0.504062 3.40408 0.300333 3.75134 0.168979C4.09861 0.0376255 4.46985 -0.0183475 4.84041 0.00477688C5.21097 0.0279013 5.57237 0.129594 5.90061 0.303102C6.22885 0.476611 6.51642 0.717965 6.74424 1.01114L9.43524 4.47014C9.92874 5.10464 10.1027 5.93114 9.90774 6.71114L9.08724 9.99614C9.04511 10.1663 9.04755 10.3444 9.09432 10.5134C9.14108 10.6823 9.2306 10.8364 9.35424 10.9606L13.0397 14.6461C13.1642 14.77 13.3184 14.8597 13.4877 14.9065C13.6569 14.9532 13.8354 14.9555 14.0057 14.9131L17.2892 14.0926C17.6742 13.997 18.0758 13.9898 18.464 14.0716C18.8521 14.1534 19.2167 14.3222 19.5302 14.5651L22.9892 17.2561C24.2327 18.2236 24.3467 20.0611 23.2337 21.1726L21.6827 22.7236C20.5727 23.8336 18.9137 24.3211 17.3672 23.7766C13.4082 22.3855 9.81404 20.1193 6.85224 17.1466C3.87979 14.1853 1.61356 10.5916 0.222236 6.63314C-0.320764 5.08814 0.166736 3.42764 1.27674 2.31764L2.82624 0.766637Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="carousel-item">
-            <div class=" d-flex justify-content-center">
-                {/* NACHA */}
-                <div className="card__gastronomia my-3 d-flex flex-column text-center">
-                  <img src={nacha} alt="logo nacha food tru" />
-                  <a
-                    className="llamar py-2"
-                    href="tel:+5493522456756"
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+              <div className="carousel-item">
+              <div className=" d-flex justify-content-center">
+                  {/* NACHA */}
+                  <div className="card__gastronomia my-3 d-flex flex-column text-center">
+                    <img src={nacha} alt="logo nacha food tru" />
+                    <a
+                      className="llamar py-2"
+                      href="tel:+5493522456756"
                     >
-                      <path
-                        d="M5.48124 1.99214C5.39269 1.87823 5.28091 1.78447 5.15334 1.71707C5.02577 1.64968 4.88531 1.61021 4.74131 1.60127C4.59731 1.59233 4.45306 1.61414 4.31813 1.66523C4.1832 1.71633 4.06069 1.79555 3.95874 1.89764L2.40774 3.45014C1.68324 4.17614 1.41624 5.20364 1.73274 6.10514C3.04783 9.8358 5.18447 13.2232 7.98474 16.0171C10.7786 18.8174 14.1661 20.954 17.8967 22.2691C18.7982 22.5856 19.8257 22.3186 20.5517 21.5941L22.1027 20.0431C22.2048 19.9412 22.284 19.8187 22.3351 19.6837C22.3862 19.5488 22.408 19.4046 22.3991 19.2606C22.3902 19.1166 22.3507 18.9761 22.2833 18.8485C22.2159 18.721 22.1221 18.6092 22.0082 18.5206L18.5477 15.8296C18.4259 15.7354 18.2844 15.6701 18.1337 15.6384C17.9831 15.6067 17.8272 15.6095 17.6777 15.6466L14.3927 16.4671C13.9542 16.576 13.495 16.5698 13.0596 16.4492C12.6242 16.3286 12.2272 16.0976 11.9072 15.7786L8.22324 12.0931C7.90401 11.7733 7.67276 11.3764 7.55188 10.941C7.431 10.5056 7.42458 10.0463 7.53324 9.60764L8.35524 6.32264C8.39237 6.17321 8.3952 6.01732 8.36351 5.86665C8.33182 5.71598 8.26642 5.57444 8.17224 5.45264L5.48124 1.99214ZM2.82624 0.766637C3.08873 0.504062 3.40408 0.300333 3.75134 0.168979C4.09861 0.0376255 4.46985 -0.0183475 4.84041 0.00477688C5.21097 0.0279013 5.57237 0.129594 5.90061 0.303102C6.22885 0.476611 6.51642 0.717965 6.74424 1.01114L9.43524 4.47014C9.92874 5.10464 10.1027 5.93114 9.90774 6.71114L9.08724 9.99614C9.04511 10.1663 9.04755 10.3444 9.09432 10.5134C9.14108 10.6823 9.2306 10.8364 9.35424 10.9606L13.0397 14.6461C13.1642 14.77 13.3184 14.8597 13.4877 14.9065C13.6569 14.9532 13.8354 14.9555 14.0057 14.9131L17.2892 14.0926C17.6742 13.997 18.0758 13.9898 18.464 14.0716C18.8521 14.1534 19.2167 14.3222 19.5302 14.5651L22.9892 17.2561C24.2327 18.2236 24.3467 20.0611 23.2337 21.1726L21.6827 22.7236C20.5727 23.8336 18.9137 24.3211 17.3672 23.7766C13.4082 22.3855 9.81404 20.1193 6.85224 17.1466C3.87979 14.1853 1.61356 10.5916 0.222236 6.63314C-0.320764 5.08814 0.166736 3.42764 1.27674 2.31764L2.82624 0.766637Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </a>
-                </div>
-                {/* BAR LA TERMINAL */}
-                <div className="card__gastronomia m-3 d-flex flex-column text-center">
-                  <img src="" alt="bar la terminal" />
-                  <a
-                    className="llamar py-2"
-                    href="tel:+5493512109971"
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.48124 1.99214C5.39269 1.87823 5.28091 1.78447 5.15334 1.71707C5.02577 1.64968 4.88531 1.61021 4.74131 1.60127C4.59731 1.59233 4.45306 1.61414 4.31813 1.66523C4.1832 1.71633 4.06069 1.79555 3.95874 1.89764L2.40774 3.45014C1.68324 4.17614 1.41624 5.20364 1.73274 6.10514C3.04783 9.8358 5.18447 13.2232 7.98474 16.0171C10.7786 18.8174 14.1661 20.954 17.8967 22.2691C18.7982 22.5856 19.8257 22.3186 20.5517 21.5941L22.1027 20.0431C22.2048 19.9412 22.284 19.8187 22.3351 19.6837C22.3862 19.5488 22.408 19.4046 22.3991 19.2606C22.3902 19.1166 22.3507 18.9761 22.2833 18.8485C22.2159 18.721 22.1221 18.6092 22.0082 18.5206L18.5477 15.8296C18.4259 15.7354 18.2844 15.6701 18.1337 15.6384C17.9831 15.6067 17.8272 15.6095 17.6777 15.6466L14.3927 16.4671C13.9542 16.576 13.495 16.5698 13.0596 16.4492C12.6242 16.3286 12.2272 16.0976 11.9072 15.7786L8.22324 12.0931C7.90401 11.7733 7.67276 11.3764 7.55188 10.941C7.431 10.5056 7.42458 10.0463 7.53324 9.60764L8.35524 6.32264C8.39237 6.17321 8.3952 6.01732 8.36351 5.86665C8.33182 5.71598 8.26642 5.57444 8.17224 5.45264L5.48124 1.99214ZM2.82624 0.766637C3.08873 0.504062 3.40408 0.300333 3.75134 0.168979C4.09861 0.0376255 4.46985 -0.0183475 4.84041 0.00477688C5.21097 0.0279013 5.57237 0.129594 5.90061 0.303102C6.22885 0.476611 6.51642 0.717965 6.74424 1.01114L9.43524 4.47014C9.92874 5.10464 10.1027 5.93114 9.90774 6.71114L9.08724 9.99614C9.04511 10.1663 9.04755 10.3444 9.09432 10.5134C9.14108 10.6823 9.2306 10.8364 9.35424 10.9606L13.0397 14.6461C13.1642 14.77 13.3184 14.8597 13.4877 14.9065C13.6569 14.9532 13.8354 14.9555 14.0057 14.9131L17.2892 14.0926C17.6742 13.997 18.0758 13.9898 18.464 14.0716C18.8521 14.1534 19.2167 14.3222 19.5302 14.5651L22.9892 17.2561C24.2327 18.2236 24.3467 20.0611 23.2337 21.1726L21.6827 22.7236C20.5727 23.8336 18.9137 24.3211 17.3672 23.7766C13.4082 22.3855 9.81404 20.1193 6.85224 17.1466C3.87979 14.1853 1.61356 10.5916 0.222236 6.63314C-0.320764 5.08814 0.166736 3.42764 1.27674 2.31764L2.82624 0.766637Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                  {/* BAR LA TERMINAL */}
+                  <div className="card__gastronomia m-3 d-flex flex-column text-center">
+                    <img src="" alt="bar la terminal" />
+                    <a
+                      className="llamar py-2"
+                      href="tel:+5493512109971"
                     >
-                      <path
-                        d="M5.48124 1.99214C5.39269 1.87823 5.28091 1.78447 5.15334 1.71707C5.02577 1.64968 4.88531 1.61021 4.74131 1.60127C4.59731 1.59233 4.45306 1.61414 4.31813 1.66523C4.1832 1.71633 4.06069 1.79555 3.95874 1.89764L2.40774 3.45014C1.68324 4.17614 1.41624 5.20364 1.73274 6.10514C3.04783 9.8358 5.18447 13.2232 7.98474 16.0171C10.7786 18.8174 14.1661 20.954 17.8967 22.2691C18.7982 22.5856 19.8257 22.3186 20.5517 21.5941L22.1027 20.0431C22.2048 19.9412 22.284 19.8187 22.3351 19.6837C22.3862 19.5488 22.408 19.4046 22.3991 19.2606C22.3902 19.1166 22.3507 18.9761 22.2833 18.8485C22.2159 18.721 22.1221 18.6092 22.0082 18.5206L18.5477 15.8296C18.4259 15.7354 18.2844 15.6701 18.1337 15.6384C17.9831 15.6067 17.8272 15.6095 17.6777 15.6466L14.3927 16.4671C13.9542 16.576 13.495 16.5698 13.0596 16.4492C12.6242 16.3286 12.2272 16.0976 11.9072 15.7786L8.22324 12.0931C7.90401 11.7733 7.67276 11.3764 7.55188 10.941C7.431 10.5056 7.42458 10.0463 7.53324 9.60764L8.35524 6.32264C8.39237 6.17321 8.3952 6.01732 8.36351 5.86665C8.33182 5.71598 8.26642 5.57444 8.17224 5.45264L5.48124 1.99214ZM2.82624 0.766637C3.08873 0.504062 3.40408 0.300333 3.75134 0.168979C4.09861 0.0376255 4.46985 -0.0183475 4.84041 0.00477688C5.21097 0.0279013 5.57237 0.129594 5.90061 0.303102C6.22885 0.476611 6.51642 0.717965 6.74424 1.01114L9.43524 4.47014C9.92874 5.10464 10.1027 5.93114 9.90774 6.71114L9.08724 9.99614C9.04511 10.1663 9.04755 10.3444 9.09432 10.5134C9.14108 10.6823 9.2306 10.8364 9.35424 10.9606L13.0397 14.6461C13.1642 14.77 13.3184 14.8597 13.4877 14.9065C13.6569 14.9532 13.8354 14.9555 14.0057 14.9131L17.2892 14.0926C17.6742 13.997 18.0758 13.9898 18.464 14.0716C18.8521 14.1534 19.2167 14.3222 19.5302 14.5651L22.9892 17.2561C24.2327 18.2236 24.3467 20.0611 23.2337 21.1726L21.6827 22.7236C20.5727 23.8336 18.9137 24.3211 17.3672 23.7766C13.4082 22.3855 9.81404 20.1193 6.85224 17.1466C3.87979 14.1853 1.61356 10.5916 0.222236 6.63314C-0.320764 5.08814 0.166736 3.42764 1.27674 2.31764L2.82624 0.766637Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </a>
-                </div>
-                {/* BAR-HOTEL DAMINA */}
-                <div className="card__gastronomia my-3 d-flex flex-column text-center">
-                  <img src="" alt="BAR DAMINA" />
-                  <a
-                    className="llamar py-2"
-                    href="tel:+5493522648201"
-                  >
-                    <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.48124 1.99214C5.39269 1.87823 5.28091 1.78447 5.15334 1.71707C5.02577 1.64968 4.88531 1.61021 4.74131 1.60127C4.59731 1.59233 4.45306 1.61414 4.31813 1.66523C4.1832 1.71633 4.06069 1.79555 3.95874 1.89764L2.40774 3.45014C1.68324 4.17614 1.41624 5.20364 1.73274 6.10514C3.04783 9.8358 5.18447 13.2232 7.98474 16.0171C10.7786 18.8174 14.1661 20.954 17.8967 22.2691C18.7982 22.5856 19.8257 22.3186 20.5517 21.5941L22.1027 20.0431C22.2048 19.9412 22.284 19.8187 22.3351 19.6837C22.3862 19.5488 22.408 19.4046 22.3991 19.2606C22.3902 19.1166 22.3507 18.9761 22.2833 18.8485C22.2159 18.721 22.1221 18.6092 22.0082 18.5206L18.5477 15.8296C18.4259 15.7354 18.2844 15.6701 18.1337 15.6384C17.9831 15.6067 17.8272 15.6095 17.6777 15.6466L14.3927 16.4671C13.9542 16.576 13.495 16.5698 13.0596 16.4492C12.6242 16.3286 12.2272 16.0976 11.9072 15.7786L8.22324 12.0931C7.90401 11.7733 7.67276 11.3764 7.55188 10.941C7.431 10.5056 7.42458 10.0463 7.53324 9.60764L8.35524 6.32264C8.39237 6.17321 8.3952 6.01732 8.36351 5.86665C8.33182 5.71598 8.26642 5.57444 8.17224 5.45264L5.48124 1.99214ZM2.82624 0.766637C3.08873 0.504062 3.40408 0.300333 3.75134 0.168979C4.09861 0.0376255 4.46985 -0.0183475 4.84041 0.00477688C5.21097 0.0279013 5.57237 0.129594 5.90061 0.303102C6.22885 0.476611 6.51642 0.717965 6.74424 1.01114L9.43524 4.47014C9.92874 5.10464 10.1027 5.93114 9.90774 6.71114L9.08724 9.99614C9.04511 10.1663 9.04755 10.3444 9.09432 10.5134C9.14108 10.6823 9.2306 10.8364 9.35424 10.9606L13.0397 14.6461C13.1642 14.77 13.3184 14.8597 13.4877 14.9065C13.6569 14.9532 13.8354 14.9555 14.0057 14.9131L17.2892 14.0926C17.6742 13.997 18.0758 13.9898 18.464 14.0716C18.8521 14.1534 19.2167 14.3222 19.5302 14.5651L22.9892 17.2561C24.2327 18.2236 24.3467 20.0611 23.2337 21.1726L21.6827 22.7236C20.5727 23.8336 18.9137 24.3211 17.3672 23.7766C13.4082 22.3855 9.81404 20.1193 6.85224 17.1466C3.87979 14.1853 1.61356 10.5916 0.222236 6.63314C-0.320764 5.08814 0.166736 3.42764 1.27674 2.31764L2.82624 0.766637Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                  {/* BAR-HOTEL DAMINA */}
+                  <div className="card__gastronomia my-3 d-flex flex-column text-center">
+                    <img src="" alt="BAR DAMINA" />
+                    <a
+                      className="llamar py-2"
+                      href="tel:+5493522648201"
                     >
-                      <path
-                        d="M5.48124 1.99214C5.39269 1.87823 5.28091 1.78447 5.15334 1.71707C5.02577 1.64968 4.88531 1.61021 4.74131 1.60127C4.59731 1.59233 4.45306 1.61414 4.31813 1.66523C4.1832 1.71633 4.06069 1.79555 3.95874 1.89764L2.40774 3.45014C1.68324 4.17614 1.41624 5.20364 1.73274 6.10514C3.04783 9.8358 5.18447 13.2232 7.98474 16.0171C10.7786 18.8174 14.1661 20.954 17.8967 22.2691C18.7982 22.5856 19.8257 22.3186 20.5517 21.5941L22.1027 20.0431C22.2048 19.9412 22.284 19.8187 22.3351 19.6837C22.3862 19.5488 22.408 19.4046 22.3991 19.2606C22.3902 19.1166 22.3507 18.9761 22.2833 18.8485C22.2159 18.721 22.1221 18.6092 22.0082 18.5206L18.5477 15.8296C18.4259 15.7354 18.2844 15.6701 18.1337 15.6384C17.9831 15.6067 17.8272 15.6095 17.6777 15.6466L14.3927 16.4671C13.9542 16.576 13.495 16.5698 13.0596 16.4492C12.6242 16.3286 12.2272 16.0976 11.9072 15.7786L8.22324 12.0931C7.90401 11.7733 7.67276 11.3764 7.55188 10.941C7.431 10.5056 7.42458 10.0463 7.53324 9.60764L8.35524 6.32264C8.39237 6.17321 8.3952 6.01732 8.36351 5.86665C8.33182 5.71598 8.26642 5.57444 8.17224 5.45264L5.48124 1.99214ZM2.82624 0.766637C3.08873 0.504062 3.40408 0.300333 3.75134 0.168979C4.09861 0.0376255 4.46985 -0.0183475 4.84041 0.00477688C5.21097 0.0279013 5.57237 0.129594 5.90061 0.303102C6.22885 0.476611 6.51642 0.717965 6.74424 1.01114L9.43524 4.47014C9.92874 5.10464 10.1027 5.93114 9.90774 6.71114L9.08724 9.99614C9.04511 10.1663 9.04755 10.3444 9.09432 10.5134C9.14108 10.6823 9.2306 10.8364 9.35424 10.9606L13.0397 14.6461C13.1642 14.77 13.3184 14.8597 13.4877 14.9065C13.6569 14.9532 13.8354 14.9555 14.0057 14.9131L17.2892 14.0926C17.6742 13.997 18.0758 13.9898 18.464 14.0716C18.8521 14.1534 19.2167 14.3222 19.5302 14.5651L22.9892 17.2561C24.2327 18.2236 24.3467 20.0611 23.2337 21.1726L21.6827 22.7236C20.5727 23.8336 18.9137 24.3211 17.3672 23.7766C13.4082 22.3855 9.81404 20.1193 6.85224 17.1466C3.87979 14.1853 1.61356 10.5916 0.222236 6.63314C-0.320764 5.08814 0.166736 3.42764 1.27674 2.31764L2.82624 0.766637Z"
-                        fill="white"
-                      />
-                    </svg>
-                  </a>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M5.48124 1.99214C5.39269 1.87823 5.28091 1.78447 5.15334 1.71707C5.02577 1.64968 4.88531 1.61021 4.74131 1.60127C4.59731 1.59233 4.45306 1.61414 4.31813 1.66523C4.1832 1.71633 4.06069 1.79555 3.95874 1.89764L2.40774 3.45014C1.68324 4.17614 1.41624 5.20364 1.73274 6.10514C3.04783 9.8358 5.18447 13.2232 7.98474 16.0171C10.7786 18.8174 14.1661 20.954 17.8967 22.2691C18.7982 22.5856 19.8257 22.3186 20.5517 21.5941L22.1027 20.0431C22.2048 19.9412 22.284 19.8187 22.3351 19.6837C22.3862 19.5488 22.408 19.4046 22.3991 19.2606C22.3902 19.1166 22.3507 18.9761 22.2833 18.8485C22.2159 18.721 22.1221 18.6092 22.0082 18.5206L18.5477 15.8296C18.4259 15.7354 18.2844 15.6701 18.1337 15.6384C17.9831 15.6067 17.8272 15.6095 17.6777 15.6466L14.3927 16.4671C13.9542 16.576 13.495 16.5698 13.0596 16.4492C12.6242 16.3286 12.2272 16.0976 11.9072 15.7786L8.22324 12.0931C7.90401 11.7733 7.67276 11.3764 7.55188 10.941C7.431 10.5056 7.42458 10.0463 7.53324 9.60764L8.35524 6.32264C8.39237 6.17321 8.3952 6.01732 8.36351 5.86665C8.33182 5.71598 8.26642 5.57444 8.17224 5.45264L5.48124 1.99214ZM2.82624 0.766637C3.08873 0.504062 3.40408 0.300333 3.75134 0.168979C4.09861 0.0376255 4.46985 -0.0183475 4.84041 0.00477688C5.21097 0.0279013 5.57237 0.129594 5.90061 0.303102C6.22885 0.476611 6.51642 0.717965 6.74424 1.01114L9.43524 4.47014C9.92874 5.10464 10.1027 5.93114 9.90774 6.71114L9.08724 9.99614C9.04511 10.1663 9.04755 10.3444 9.09432 10.5134C9.14108 10.6823 9.2306 10.8364 9.35424 10.9606L13.0397 14.6461C13.1642 14.77 13.3184 14.8597 13.4877 14.9065C13.6569 14.9532 13.8354 14.9555 14.0057 14.9131L17.2892 14.0926C17.6742 13.997 18.0758 13.9898 18.464 14.0716C18.8521 14.1534 19.2167 14.3222 19.5302 14.5651L22.9892 17.2561C24.2327 18.2236 24.3467 20.0611 23.2337 21.1726L21.6827 22.7236C20.5727 23.8336 18.9137 24.3211 17.3672 23.7766C13.4082 22.3855 9.81404 20.1193 6.85224 17.1466C3.87979 14.1853 1.61356 10.5916 0.222236 6.63314C-0.320764 5.08814 0.166736 3.42764 1.27674 2.31764L2.82624 0.766637Z"
+                          fill="white"
+                        />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
+              
             </div>
-            
-          </div>
-          <button class="carousel-control-prev justify-content-start" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next justify-content-end" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>            
-        
-    </section>
+            <button className="carousel-control-prev justify-content-start" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span className="visually-hidden">Previous</span>
+            </button>
+            <button className="carousel-control-next justify-content-end" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span className="carousel-control-next-icon" aria-hidden="true"></span>
+              <span className="visually-hidden">Next</span>
+            </button>
+          </div>            
+          
+          </section>
+      )}        
+      
     </main>
   );
 };

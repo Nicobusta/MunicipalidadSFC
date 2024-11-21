@@ -4,6 +4,17 @@ body{
     p{
         font-family: "Roboto", sans-serif;
     }
+    .reclamosWpp{
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+        
+        img{
+           filter:drop-shadow(1px 1px 5px);
+            width: 150px;
+        }
+    }
 }
 
     

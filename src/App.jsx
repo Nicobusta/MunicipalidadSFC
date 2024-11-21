@@ -1,21 +1,40 @@
-import {Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from "./components/Navbar.jsx"
-import Home from "./components/Home"
-import Atractivos from "./components/Atractvos"
-import NuestroPueblo from "./components/NuestroPueblo"
-import Intendencia from './components/gobierno/Intendencia';
-import Secretarias from './components/gobierno/Secretarias';
-import Consejo from './components/gobierno/Consejo';
-import Tribunal from './components/gobierno/Tribunal';
-import Fechaslocales from './components/Fechaslocales';
-import Footer from './components/Footer';
+import Home from "./components/Home.jsx"
+import Atractivos from "./components/Atractvos.jsx"
+import NuestroPueblo from "./components/NuestroPueblo.jsx"
+import Intendencia from './components/gobierno/Intendencia.jsx';
+import Secretarias from './components/gobierno/Secretarias.jsx';
+import Consejo from './components/gobierno/Consejo.jsx';
+import Tribunal from './components/gobierno/Tribunal.jsx';
+import Fechaslocales from './components/Fechaslocales.jsx';
+import Footer from './components/Footer.jsx';
+import reclamos from "./assets/reclamos.png";
 
 
 
 function App() {
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 768);
+
+  useEffect(() => {
+    // Función para actualizar el estado cuando cambia el tamaño de la ventana
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth < 768);
+    };
+
+    // Agregar listener al evento de redimensionamiento
+    window.addEventListener("resize", handleResize);
+
+    // Limpiar el listener al desmontar el componente
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <>
+     <Router>
        <Navbar/>
        <Routes>  
             <Route path="/" element={<Home/>}/>
@@ -28,7 +47,14 @@ function App() {
             <Route path="/gobierno/tribunal" element={<Tribunal/>}/>
 
        </Routes>
+
+       {isLargeScreen && (
+        <a className='reclamosWpp'  href="https://wa.me/+5493522440078" target="_blank">
+          <img src={reclamos} alt='logo'/>
+        </a>
+       )}
         <Footer/> 
+      </Router>
     </>
   )
 }
