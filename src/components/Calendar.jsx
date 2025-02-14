@@ -15,9 +15,8 @@ const Calendar = () => {
       /* weekends={false} */ //Desabilita los fines de semanas
         events={
             [
-              { title: 'Jornada para adultos', date: '2024-11-17',backgroundColor: '#065658', borderColor: 'transparent' },
-              { title: 'Prefestival', date: '2024-12-21',backgroundColor: '#065658', borderColor: 'transparent' },
-              { title: 'Prefestival', date: '2024-12-22',backgroundColor: '#065658', borderColor: 'transparent' } 
+              { title: 'Festival de la Palma', date: '2025-02-14',backgroundColor: '#065658', borderColor: 'transparent' },
+              { title: 'Festival de la Palma', date: '2025-02-15',backgroundColor: '#065658', borderColor: 'transparent' } 
             ]
             
         }

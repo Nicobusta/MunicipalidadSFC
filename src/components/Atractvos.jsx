@@ -8,6 +8,7 @@ import lasPiedritas from '../assets/atractivos/lasPiedritas.webp'
 import pozodeltigre from '../assets/atractivos/pozodeltigre.webp'
 import circuito from '../assets/atractivos/circuito.png'
 import portada from '../assets/atractivos/portada.webp'
+import laura from '../assets/atractivos/laura.jpeg'
 import avatarMujer from '/avatarMujer.webp'
 import Aos from 'aos'
 import "aos/dist/aos.css"
@@ -70,7 +71,7 @@ const Atractvos = () => {
         <h3 className='py-3'>GUIAS TURISTICOS</h3>
             <section className='my-3 d-md-flex justify-content-md-evenly'>
                 <article data-aos="fade-up" data-aos-duration="3000" className='guias d-flex justify-content-center align-items-center mx-auto my-4 mx-md-0'>
-                    <img className="mx-2 my-4" src={avatarMujer} alt="" />
+                    <img className="mx-2 my-4" src={laura} alt="" />
                     <div className='text-center mx-3'>
                         <h4 className='mb-4'>Laura Gomez</h4>
                         <a className="py-2 px-4" href="tel:+5493522410156">Contactar</a>

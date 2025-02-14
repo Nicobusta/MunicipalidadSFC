@@ -62,7 +62,7 @@ const Footer = () => {
         <hr />
         <p className='text-center w-75 mx-auto my-0 pb-2'> 
           <small>
-              Municipalidad de San Francisco del Chañar 2024 © Todos los derechos reservados.
+              Municipalidad de San Francisco del Chañar 2025 © Todos los derechos reservados.
           </small> 
         </p>
     </footer>

@@ -27,6 +27,7 @@
         width: 3rem;
         animation: subirBajar 2s ease-in-out infinite;
     }
+    
 
     @keyframes subirBajar {
         0% {
@@ -70,6 +71,10 @@
     a{
         color:#065658 ;
         text-decoration: underline;
+    }
+    p{
+        text-align: right;
+        font-size: 0.7em;
     }
 }
 

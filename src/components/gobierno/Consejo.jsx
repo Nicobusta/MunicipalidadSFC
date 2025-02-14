@@ -57,14 +57,14 @@ const Consejo = () => {
             </div>
 
             <div className='card__integrantes w-75 mx-auto mt-4 pb-4 d-flex justify-content-start align-items-center'>
-                <img src="/avatarMujer.webp" roundedCircle />
+                <img src={avatarMujer} roundedCircle />
                 <div className='ms-5'>
                   <h4>Miryam del Valle Rojas</h4>
                 </div>
             </div>
 
             <div className='card__integrantes w-75 mx-auto mt-4 pb-4 d-flex justify-content-start align-items-center'>
-                <img src="/avatarHombre.webp" roundedCircle />
+                <img src={avatarHombre} roundedCircle />
                 <div className='ms-5'>
                   <h4>Guillermo Damián Barbini</h4>
                 </div>
