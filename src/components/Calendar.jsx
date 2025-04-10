@@ -6,13 +6,12 @@ import "./calendar.scss"
 
 const Calendar = () => {
 
-
   return (
     <div className='mx-2 mx-md-5 my-4'>
       <FullCalendar
         plugins={[dayGridPlugin]}
         initialView="dayGridMonth"
-        
+        locale={esLocale}
         events={[
           { title: 'Festival de la Palma', date: '2025-02-14', backgroundColor: '#065658', borderColor: 'transparent' },
           { title: 'Festival de la Palma', date: '2025-02-15', backgroundColor: '#065658', borderColor: 'transparent' }
