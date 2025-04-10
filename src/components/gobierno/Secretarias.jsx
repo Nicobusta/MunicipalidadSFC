@@ -81,7 +81,7 @@ const Secretarias = () => {
         </article>
       </section>
 
-      <section className="card__secretaria m-5 mx-auto bg-body-tertiary">
+      {/* <section className="card__secretaria m-5 mx-auto bg-body-tertiary">
         <h3>Secretario de Gobierno</h3>
         <article className="d-flex aling-items-center">
           <img className="avatar my-auto" src={gaspar} alt="" />
@@ -114,7 +114,7 @@ const Secretarias = () => {
              </div>         
           </div>
         </article>
-      </section>
+      </section> */}
 
       <section className="card__secretaria mt-5 mx-auto bg-body-tertiary">
         <h3>Secretario General</h3>
