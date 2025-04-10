@@ -46,14 +46,14 @@ const Footer = () => {
         </section>
         <hr className='my-4'/>
         <section className='telefonos__utiles mt-4 d-flex flex-column aling-items-center text-center '>
-            <h4>Telèfonos ùtiles</h4>
+            <h4>Teléfonos Utiles</h4>
             <ul className='d-md-flex flex-md-wrap justify-content-md-evenly mx-md-5'>
                 <li><a href="tel:+5493522455613"> Hospital <br/> 03522 - 455613</a></li>
                 <li><a href="tel:911"> Policia <br/> 911</a></li> 
                 <li><a href="tel:911"> Bomberos <br/> 911</a></li>      
                 <li><a href="tel:+5493522440078"> Reclamos Agua <br/> 03522 - 440078</a></li>  
                 <li><a href="tel:+5493513488755"> Reclamos EPEC <br/> 0351 - 3488755</a></li> 
-                <li><a href="tel:+5493522453383"> Alumbrado publico <br/> 03522 - 453383</a></li> 
+                <li><a href="tel:+5493522453383"> Alumbrado Publico <br/> 03522 - 453383</a></li> 
                 <li><a href="tel:+5493522440078"> At. Cliente Municipalidad <br/> 03522 - 440078</a></li>  
                 <li><a href="tel:+5493513708324"> ETAC <br/> 0351 - 3708324</a></li>  
                 <li><a href="tel:+5493512522174"> Malezas, limpieza, podas y escombros <br/> 0351 - 2522174</a></li>  

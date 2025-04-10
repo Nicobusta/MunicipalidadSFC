@@ -54,7 +54,7 @@ const Atractvos = () => {
 
         <CardAtractivo 
             img={franciscoViejo}
-            titulo={"San Francisco Viejo"} 
+            titulo={"La Esquina"} 
             descripcion={`En las cercanías de Villa de María del Río Seco, el caudillo entrerriano Francisco "Pancho" Ramírez fue capturado y asesinado tras enfrentarse a las tropas de Santa Fe y Córdoba. Perseguido por fuerzas comandadas por Francisco Bedolla, Ramírez descansó brevemente en la zona antes de ser sorprendido por las tropas santafesinas el 10 de julio. Aunque logró rescatar a su compañera Delfina, perdió la vida en el intento. Su cabeza fue exhibida en la plaza pública y enviada al gobernador de Santa Fe, Estanislao López, como prueba de la misión cumplida.`}
         />
         
@@ -68,7 +68,7 @@ const Atractvos = () => {
 
         <CardAtractivo 
             img={pozodeltigre}
-            titulo={"Posta Las Piedrita"} 
+            titulo={"Posta Pozo del Tigre"} 
             descripcion={`La Posta debe su nombre al yaguareté (tigre americano) que poblaba la zona. Pozo del Tigre, es una de las pocas construcciones del lugar que aún queda en pie y que conserva un dintel original donde se puede leer: Año del Señor de 1771.
             <br/>
             En agosto de 1810, el Coronel Antonio Gonzáles Balcarce escribió allí el comunicado oficial dirigido al Coronel Ortiz de Ocampo, informando que el ex Virrey Liniers había sido detenido en la Posta de Las Piedritas. `}
