@@ -9,6 +9,8 @@ import lasPiedritas from '../assets/atractivos/lasPiedritas.webp'
 import pozodeltigre from '../assets/atractivos/pozodeltigre.webp'
 import circuito from '../assets/atractivos/circuito.png'
 import portada from '../assets/atractivos/portada.webp'
+import caminoReal from '../assets/atractivos/caminoReal.webp'
+import palmaCaranday from '../assets/atractivos/palmaCaranday.webp'
 import laura from '../assets/atractivos/laura.jpeg'
 import Aos from 'aos'
 import "aos/dist/aos.css"
@@ -29,6 +31,12 @@ const Atractvos = () => {
             img={iglesia} 
             titulo={"Iglesia San Francisco Solano"} 
             descripcion={"El 3 de julio de 1890 se firmó el contrato entre los miembros de la Comisión directiva pro-templo y Antonio Pre visto como constructors este se compromette a construiret templo de tres naves, con dos sacristías y dos portadas co laterales a las naves extemas, y dos torres con sujeción a los planos presentados y aprobados en su oportunidad."}
+        />
+
+        <CardAtractivo 
+            img={caminoReal}
+            titulo={"Camino Real"} 
+            descripcion={"El Camino Real al Alto Perú fue una de las rutas más importantes de Sudamérica durante la época colonial. Atraviesa el corazón de San Francisco del Chañar, uniendo historia, paisajes y memoria viva. Por este antiguo sendero de tierra transitaron virreyes, patriotas, comerciantes, viajeros y tropas independentistas que forjaron el destino del país.<br/>Este trayecto conserva postas, capillas, construcciones de adobe y huellas del pasado, entre ellas la Posta Las Piedritas, Posta Pozo del Tigre y sitios conmemorativos como el Monumento a Pancho Ramírez. Hoy se puede recorrer en caminatas, a caballo, en ciclotours o caravanas culturales, redescubriendo su valor histórico y paisajístico.<br/>El Camino Real no solo es un vestigio del pasado: es una experiencia que conecta a quienes lo recorren con los orígenes de nuestra identidad, entre palmares, llanuras y relatos que siguen vivos en la voz de los pueblos."}
         />
 
         <CardAtractivo 
@@ -73,6 +81,9 @@ const Atractvos = () => {
             <br/>
             En agosto de 1810, el Coronel Antonio Gonzáles Balcarce escribió allí el comunicado oficial dirigido al Coronel Ortiz de Ocampo, informando que el ex Virrey Liniers había sido detenido en la Posta de Las Piedritas. `}
         />
+
+
+
       </section>
       <section >
         <h3 className='py-3'>GUIAS TURISTICOS</h3>

@@ -1,6 +1,6 @@
 import React from 'react'
 import MenuGobierno from './Menugobierno'
-import seba from '/sebastian.jpeg'
+import seba from '/sebastian.webp'
 import './intendencia.scss'
 
 const Intendencia = () => {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
-import Aos from 'aos'
-import "aos/dist/aos.css"
+import LeerMas from "./Leermas.jsx";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import "./nuestroPueblo.scss";
 import Hospedaje from "./Hospedaje.jsx";
 import Gastronomia from "./Gastronomia.jsx";
@@ -35,24 +36,23 @@ import nacha from "../assets/gastronomia/nacha.png";
 import laprevia from "../assets/gastronomia/laprevia.jpeg";
 import barDamian from "../assets/gastronomia/damian.jpeg";
 
-
 const NuestroPueblo = () => {
   const carouselRef = useRef(null);
   const galleryImagesRef = useRef([]);
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 768);
 
-  useEffect(() => { 
+  useEffect(() => {
     const handleResize = () => {
       setIsLargeScreen(window.innerWidth > 768);
     };
-  
+
     window.addEventListener("resize", handleResize);
-  
+
     Aos.init();
     const carousel = new window.bootstrap.Carousel(carouselRef.current);
-  
+
     const handlers = []; // Almacena las referencias de los event listeners
-  
+
     galleryImagesRef.current.forEach((img, index) => {
       if (img) {
         const handleImageClick = () => carousel.to(index);
@@ -60,7 +60,7 @@ const NuestroPueblo = () => {
         handlers.push({ img, handleImageClick });
       }
     });
-  
+
     return () => {
       window.removeEventListener("resize", handleResize);
       handlers.forEach(({ img, handleImageClick }) => {
@@ -71,7 +71,6 @@ const NuestroPueblo = () => {
     };
   }, []);
 
-  
   return (
     <main className="overflow-hidden">
       <section className="banersNP">
@@ -85,17 +84,22 @@ const NuestroPueblo = () => {
         <div></div>
         <h1 className="w-100 text-center">Nuestro Pueblo</h1>
       </section>
-      <p data-aos="zoom-in" className="text-center mx-4 my-4 mx-md-auto my-md-5">
+      <p
+        data-aos="zoom-in"
+        className="text-center mx-4 my-4 mx-md-auto my-md-5"
+      >
         San Francisco del Chañar es una localidad situada al norte de la
         provincia de Córdoba, a 200 km de la ciudad capital. A ella se llega a
         través de ruta 9, y luego tomando la ruta 22 por 30 km más. Dicha
         localidad está situada sobre el camino real y cuenta con una población
         de aprox. 4500 personas.
       </p>
-
+      
       {/* COMIENZO DE LA GALERIA */}
       <section>
-        <h3 data-aos="zoom-in" className="py-3">POSTALES</h3>
+        <h3 data-aos="zoom-in" className="py-3">
+          POSTALES
+        </h3>
         <article className="galeria d-flex flex-wrap px-3 mx-md-auto">
           <img
             data-aos="zoom-out"
@@ -137,7 +141,7 @@ const NuestroPueblo = () => {
             ref={(el) => (galleryImagesRef.current[3] = el)}
           />
           <img
-          data-aos="zoom-out-right"
+            data-aos="zoom-out-right"
             src={galeria6}
             alt=""
             className="w-50 mb-3 pe-3 rounded-2"
@@ -147,7 +151,7 @@ const NuestroPueblo = () => {
           />
           <div className="w-50 d-flex flex-column">
             <img
-            data-aos="zoom-out-left"
+              data-aos="zoom-out-left"
               src={galeria8}
               alt=""
               className="mb-3 rounded-2"
@@ -157,7 +161,7 @@ const NuestroPueblo = () => {
             />
 
             <img
-            data-aos="zoom-out-left"
+              data-aos="zoom-out-left"
               src={galeria_1}
               alt=""
               className="mb-3 rounded-2"
@@ -185,7 +189,7 @@ const NuestroPueblo = () => {
             ref={(el) => (galleryImagesRef.current[8] = el)}
           />
           <img
-          data-aos="zoom-out"
+            data-aos="zoom-out"
             src={galeria9}
             alt=""
             className="w-100 mb-3 rounded-2"
@@ -194,7 +198,7 @@ const NuestroPueblo = () => {
             ref={(el) => (galleryImagesRef.current[9] = el)}
           />
           <img
-          data-aos="zoom-out-right"
+            data-aos="zoom-out-right"
             src={galeria5}
             alt=""
             className="w-50 mb-3 pe-3 rounded-2"
@@ -203,7 +207,7 @@ const NuestroPueblo = () => {
             ref={(el) => (galleryImagesRef.current[10] = el)}
           />
           <img
-          data-aos="zoom-out-left"
+            data-aos="zoom-out-left"
             src={galeria_2}
             alt=""
             className="w-50 mb-3 rounded-2"
@@ -224,7 +228,11 @@ const NuestroPueblo = () => {
               {/* <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close">
                             </button> */}
 
-              <div ref={carouselRef} id="carouselExample" className="carousel slide">
+              <div
+                ref={carouselRef}
+                id="carouselExample"
+                className="carousel slide"
+              >
                 <div className="carousel-inner">
                   <div className="carousel-item active">
                     <img src={galeria1} className="d-block w-100" alt="..." />
@@ -293,214 +301,226 @@ const NuestroPueblo = () => {
         </div>
       </section>
 
-{/* COMIENZO DE ALOJAMIENTOS */}
+      {/* COMIENZO DE ALOJAMIENTOS */}
       <section>
-          <h3 className="py-3">ALOJAMIENTOS</h3>
-          <article className="w-100 d-md-flex flex-wrap justify-content-md-center px-sm-5 px-md-0">
-              <Hospedaje 
-                efecto={"fade-right"}
-                titulo="LAS PENCAS"
-                tipo="DEPARTAMETO"
-                capacidad="12"
-                direccion="Belgrano 515" 
-                tel="+5493516355967"
-                img={lasPencas}
-              />
+        <h3 className="py-3">ALOJAMIENTOS</h3>
+        <article className="w-100 d-md-flex flex-wrap justify-content-md-center px-sm-5 px-md-0">
+          <Hospedaje
+            efecto={"fade-right"}
+            titulo="LAS PENCAS"
+            tipo="DEPARTAMETO"
+            capacidad="12"
+            direccion="Belgrano 515"
+            tel="+5493516355967"
+            img={lasPencas}
+          />
 
-              <Hospedaje
-                efecto={"fade-left"}
-                titulo="PIEDRA MORA"
-                tipo="HOSPEDAJE"
-                capacidad="18"
-                direccion="Juan Pablo II y Sobremonte" 
-                tel="+5493522455430"
-                img={piedraMora}
-              />
+          <Hospedaje
+            efecto={"fade-left"}
+            titulo="PIEDRA MORA"
+            tipo="HOSPEDAJE"
+            capacidad="18"
+            direccion="Juan Pablo II y Sobremonte"
+            tel="+5493522455430"
+            img={piedraMora}
+          />
 
-              <Hospedaje 
-                efecto={"fade-right"}
-                titulo="ROSARIO GARRIBIA"
-                tipo="HOSPEDAJE"
-                capacidad="6"
-                direccion="San Martin 585" 
-                tel="+5493517520560"
-                img={garribia}
-              />
+          <Hospedaje
+            efecto={"fade-right"}
+            titulo="ROSARIO GARRIBIA"
+            tipo="HOSPEDAJE"
+            capacidad="6"
+            direccion="San Martin 585"
+            tel="+5493517520560"
+            img={garribia}
+          />
 
-              <Hospedaje
-                efecto={"fade-left"}
-                titulo="SAN FRANCISCO"
-                tipo="DEPARTAMETO"
-                capacidad="6"
-                direccion="Gra. Paz 366" 
-                tel="+5493516249250"
-                img={sanFrancisco}
-              />
-          
-              <Hospedaje 
-                efecto={"fade-right"}
-                titulo="HOTEL DAMIAN"
-                tipo="DEPARTAMETO"
-                capacidad="14"
-                direccion="San Martin 287" 
-                tel="+5493522648201"
-                img={damian}
-              />
+          <Hospedaje
+            efecto={"fade-left"}
+            titulo="SAN FRANCISCO"
+            tipo="DEPARTAMETO"
+            capacidad="6"
+            direccion="Gra. Paz 366"
+            tel="+5493516249250"
+            img={sanFrancisco}
+          />
 
-              <Hospedaje
-                efecto={"fade-left"}
-                titulo="MIGUEL HEREDIA"
-                tipo="DEPARTAMETO"
-                capacidad="5"
-                direccion="Calle Alberdi" 
-                tel="+5493516249250"
-                img={miguelHeredia}
-              />
-            
-              <Hospedaje 
-                efecto={"fade-right"}
-                titulo="SUSI BULACIOS"
-                tipo="DEPARTAMETO"
-                capacidad="4"
-                direccion="Eva Duarte 252" 
-                tel="+5493522455147"
-                img={susi}
-              />
+          <Hospedaje
+            efecto={"fade-right"}
+            titulo="HOTEL DAMIAN"
+            tipo="DEPARTAMETO"
+            capacidad="14"
+            direccion="San Martin 287"
+            tel="+5493522648201"
+            img={damian}
+          />
 
-              <Hospedaje
-                efecto={"fade-left"}
-                titulo="JACARANDA"
-                tipo="DEPARTAMETO"
-                capacidad="6"
-                direccion="Avellaneda 107 esq. San Martin" 
-                tel="+5493522543383"
-                img={jacaranda}
-              />
-            
-          </article>
-          
+          <Hospedaje
+            efecto={"fade-left"}
+            titulo="MIGUEL HEREDIA"
+            tipo="DEPARTAMETO"
+            capacidad="5"
+            direccion="Calle Alberdi"
+            tel="+5493516249250"
+            img={miguelHeredia}
+          />
+
+          <Hospedaje
+            efecto={"fade-right"}
+            titulo="SUSI BULACIOS"
+            tipo="DEPARTAMETO"
+            capacidad="4"
+            direccion="Eva Duarte 252"
+            tel="+5493522455147"
+            img={susi}
+          />
+
+          <Hospedaje
+            efecto={"fade-left"}
+            titulo="JACARANDA"
+            tipo="DEPARTAMETO"
+            capacidad="6"
+            direccion="Avellaneda 107 esq. San Martin"
+            tel="+5493522543383"
+            img={jacaranda}
+          />
+        </article>
       </section>
 
-{/* COMIENZO DE GASTRONOMIA */}
+      {/* COMIENZO DE GASTRONOMIA */}
       {isLargeScreen ? (
         <section>
-            <h3 className="py-3">GASTRONOMIA</h3>
-            <div data-aos="fade-up" className="d-flex justify-content-evenly">
+          <h3 className="py-3">GASTRONOMIA</h3>
+          <div data-aos="fade-up" className="d-flex justify-content-evenly">
+            <Gastronomia
+              nombre="Nuevo Rancho"
+              telefono="+5493516144200"
+              img={nuevoRancho}
+            />
 
-              <Gastronomia 
-                nombre="Nuevo Rancho" 
-                telefono="+5493516144200" 
-                img={nuevoRancho}
-              />
+            <Gastronomia
+              nombre="La previa"
+              telefono="+5493513732290"
+              img={laprevia}
+            />
 
-              <Gastronomia 
-                nombre="La previa" 
-                telefono="+5493513732290" 
-                img={laprevia}
-              />
-              
-              <Gastronomia 
-                nombre="bar encuentos" 
-                telefono="+5493522650648" 
-                img={encuentros}
-              />   
+            <Gastronomia
+              nombre="bar encuentos"
+              telefono="+5493522650648"
+              img={encuentros}
+            />
 
-              <Gastronomia 
-                nombre="bar el cruce" 
-                telefono="+5493516528371" 
-                img={elcruce}
-              /> 
-                
-              <Gastronomia 
-                nombre="nacha food truck" 
-                telefono="+5493522456756" 
-                img={nacha}
-              /> 
-              
-              <Gastronomia 
-                nombre="bar la terminal" 
-                telefono="+5493512109971" 
-                img={bar}
-              />
+            <Gastronomia
+              nombre="bar el cruce"
+              telefono="+5493516528371"
+              img={elcruce}
+            />
 
-              <Gastronomia 
-                nombre="BAR DAMINA" 
-                telefono="+5493522648201" 
-                img={barDamian}
-              />   
-                            
-            </div>
+            <Gastronomia
+              nombre="nacha food truck"
+              telefono="+5493522456756"
+              img={nacha}
+            />
+
+            <Gastronomia
+              nombre="bar la terminal"
+              telefono="+5493512109971"
+              img={bar}
+            />
+
+            <Gastronomia
+              nombre="BAR DAMINA"
+              telefono="+5493522648201"
+              img={barDamian}
+            />
+          </div>
         </section>
       ) : (
         <section>
-            <h3 className="py-3">GASTRONOMIA</h3>
-            <div id="carouselExampleIndicators" data-aos="fade-up" className="carousel slide">
-  
+          <h3 className="py-3">GASTRONOMIA</h3>
+          <div
+            id="carouselExampleIndicators"
+            data-aos="fade-up"
+            className="carousel slide"
+          >
             <div className="carousel-inner">
               <div className="carousel-item active">
                 <div className="d-flex justify-content-center">
-                 
-                  <Gastronomia 
-                    nombre="Nuevo Rancho" 
-                    telefono="+5493516144200" 
+                  <Gastronomia
+                    nombre="Nuevo Rancho"
+                    telefono="+5493516144200"
                     img={nuevoRancho}
                   />
 
-                  <Gastronomia 
-                    nombre="La previa" 
-                    telefono="+5493513732290" 
+                  <Gastronomia
+                    nombre="La previa"
+                    telefono="+5493513732290"
                     img={laprevia}
                   />
-                  
-                  <Gastronomia 
-                    nombre="bar encuentos" 
-                    telefono="+5493522650648" 
-                    img={encuentros}
-                  />   
 
-                  <Gastronomia 
-                    nombre="bar el cruce" 
-                    telefono="+5493516528371" 
+                  <Gastronomia
+                    nombre="bar encuentos"
+                    telefono="+5493522650648"
+                    img={encuentros}
+                  />
+
+                  <Gastronomia
+                    nombre="bar el cruce"
+                    telefono="+5493516528371"
                     img={elcruce}
-                  /> 
+                  />
                 </div>
               </div>
 
               <div className="carousel-item">
                 <div className=" d-flex justify-content-center">
-                  <Gastronomia 
-                    nombre="nacha food truck" 
-                    telefono="+5493522456756" 
+                  <Gastronomia
+                    nombre="nacha food truck"
+                    telefono="+5493522456756"
                     img={nacha}
-                  /> 
-                  
-                  <Gastronomia 
-                    nombre="bar la terminal" 
-                    telefono="+5493512109971" 
+                  />
+
+                  <Gastronomia
+                    nombre="bar la terminal"
+                    telefono="+5493512109971"
                     img={bar}
                   />
 
-                  <Gastronomia 
-                    nombre="BAR DAMINA" 
-                    telefono="+5493522648201" 
+                  <Gastronomia
+                    nombre="BAR DAMINA"
+                    telefono="+5493522648201"
                     img={barDamian}
-                  /> 
+                  />
                 </div>
               </div>
-              
             </div>
-            <button className="carousel-control-prev justify-content-start" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-              <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <button
+              className="carousel-control-prev justify-content-start"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="prev"
+            >
+              <span
+                className="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
               <span className="visually-hidden">Previous</span>
             </button>
-            <button className="carousel-control-next justify-content-end" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-              <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <button
+              className="carousel-control-next justify-content-end"
+              type="button"
+              data-bs-target="#carouselExampleIndicators"
+              data-bs-slide="next"
+            >
+              <span
+                className="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
               <span className="visually-hidden">Next</span>
             </button>
-            </div>            
+          </div>
         </section>
-      )}        
-      
+      )}
     </main>
   );
 };

@@ -62,7 +62,7 @@ const Navbar = () => {
 
           <Link to={"/atractivos"} className={`${isActive('/atractivos') ? 'active' : ''} navbar-brand`} onClick={handleClose}>¿Que Visitar?</Link>
 
-          <Link to={"/fechaslocales"} className={`${isActive('/fechaslocales') ? 'active' : ''} navbar-brand`} onClick={handleClose}>Fechas Tradicionales</Link>
+          <Link to={"/fechaslocales"} className={`${isActive('/fechaslocales') ? 'active' : ''} navbar-brand`} onClick={handleClose}>Festividades</Link>
 
           {/* <Link to={"/"} className={`${isActive('/gobierno/intendencia') ? 'active' : ''} navbar-brand`}>Servicios a vecinos</Link> }*/
           

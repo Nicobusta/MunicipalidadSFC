@@ -13,8 +13,9 @@ const Calendar = () => {
         initialView="dayGridMonth"
         locale={esLocale}
         events={[
-          { title: 'Festival de la Palma', date: '2025-02-14', backgroundColor: '#065658', borderColor: 'transparent' },
-          { title: 'Festival de la Palma', date: '2025-02-15', backgroundColor: '#065658', borderColor: 'transparent' }
+          { title: 'Mes de los Jardines', date: '2025-05-16', backgroundColor: '#065658', borderColor: 'transparent' },
+          { title: '1º Café Literario', date: '2025-05-30', backgroundColor: '#065658', borderColor: 'transparent' },
+          { title: '7° Certamen de Danzas Folclóricas', date: '2025-05-17', backgroundColor: '#065658', borderColor: 'transparent' }
         ]}
         
       />
