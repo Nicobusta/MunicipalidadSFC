@@ -62,7 +62,7 @@ const Atractvos = () => {
 
         <CardAtractivo 
             img={franciscoViejo}
-            titulo={"La Esquina"} 
+            titulo={"Monumento a Francisco Ramirez"} 
             descripcion={`En las cercanías de Villa de María del Río Seco, el caudillo entrerriano Francisco "Pancho" Ramírez fue capturado y asesinado tras enfrentarse a las tropas de Santa Fe y Córdoba. Perseguido por fuerzas comandadas por Francisco Bedolla, Ramírez descansó brevemente en la zona antes de ser sorprendido por las tropas santafesinas el 10 de julio. Aunque logró rescatar a su compañera Delfina, perdió la vida en el intento. Su cabeza fue exhibida en la plaza pública y enviada al gobernador de Santa Fe, Estanislao López, como prueba de la misión cumplida.`}
         />
         

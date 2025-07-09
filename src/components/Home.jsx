@@ -4,10 +4,9 @@ import prePalma from "../assets/noticias/prePalma.jpeg";
 import entrega from "../assets/noticias/entregaBandera.jpeg";
 import festival from "../assets/noticias/festival.webp";
 import jardin from "../assets/noticias/jardin.webp";
-import soyEstaTierra from "../assets/noticias/soyEstaTierra.webp";
-import autoTour from "../assets/noticias/autoTour.webp";
-import cafeLiterario from "../assets/fechasTradicionales/cafeLiterario.webp";
-
+import calendario from "../assets/noticias/calendario.jpg";
+import independencia from "../assets/noticias/independencia.jpg";
+import taller from "../assets/noticias/taller.jpg";
 import Calendar from "./Calendar";
 
 const Home = () => {
@@ -35,18 +34,18 @@ const Home = () => {
       <section className="noticias">
         <h4 className="py-2">Noticias</h4>
         <section className="d-flex flex-wrap justify-content-center align-items-center">
-          {/**************** Certamen de Música Folclórica ****************/}
-          {/* <article className="intro mx-auto">
+
+{/**************** TALLER DE TEATRO EN CHÁÑAR ****************/}
+          <article className="intro mx-auto">
             <button
               className="text-center"
               type="button"
               data-bs-toggle="modal"
-              data-bs-target="#soyEstaTierra"
+              data-bs-target="#teatro"
             >
-              <img src={soyEstaTierra} width="100%" alt="" />
+              <img src={taller} width="100%" alt="" />
               <h5 className="fs-6">
-                Se viene el 7° Certamen de Danzas Folclóricas “Soy Esta Tierra”:
-                cultura, competencia y tradición en el Chañar
+                TALLER DE TEATRO EN CHÁÑAR
               </h5>
               <p>
                 Seguir leyendo
@@ -68,7 +67,7 @@ const Home = () => {
 
             <div
               class="modal fade"
-              id="soyEstaTierra"
+              id="teatro"
               tabindex="-1"
               aria-labelledby="exampleModalLabel"
               aria-hidden="true"
@@ -80,8 +79,7 @@ const Home = () => {
                       class="modal-title  text-center fs-4"
                       id="exampleModalLabel"
                     >
-                      Se viene el 7° Certamen de Danzas Folclóricas “Soy Esta
-                      Tierra”: cultura, competencia y tradición en el Chañar
+                      TALLER DE TEATRO EN CHÁÑAR
                     </h1>
                     <button
                       type="button"
@@ -91,48 +89,188 @@ const Home = () => {
                     ></button>
                   </div>
                   <div class="modal-body ">
-                    <img src={soyEstaTierra} width="100%" alt="" />
+                    <img src={taller} width="100%" alt="" />
                     <p className="fs-6 text-start mt-3 mx-auto">
                       {" "}
-                      El próximo 17 de Mayo de 2025, San Francisco del Chañar
-                      será sede de la Séptima Edición del Certamen de Danzas
-                      Folclóricas “Soy Esta Tierra”, un evento ya consolidado en
-                      nuestra región y organizado por la Academia de Danzas Soy
-                      Esta Tierra, bajo la dirección del profesor Cristian
-                      Márquez. <br></br>
-                      <br></br>
-                      Este séptimo certamen, de carácter competitivo, reunirá a
-                      academias de toda la provincia, ofreciendo una jornada
-                      cargada de talento, identidad y pasión por nuestras raíces
-                      folclóricas. El encuentro comenzará a las 11:00 horas y se
-                      extenderá durante toda la tarde, en un clima familiar, de
-                      esfuerzo y celebración de nuestra cultura popular.
-                      <br></br>
-                      <br></br>
-                      Además, durante toda la jornada habrá un esmerado servicio
-                      de buffet, cuyos fondos serán destinados a beneficio de la
-                      academia organizadora, para seguir fortaleciendo su
-                      valioso trabajo artístico y educativo.
-                      <br></br>
-                      <br></br>
-                      Desde la Municipalidad de San Francisco del Chañar
-                      invitamos a toda la comunidad a participar y disfrutar de
-                      este evento, que no solo destaca por su nivel artístico,
-                      sino también por su profundo sentido de pertenencia y
-                      encuentro.
-                      <br></br>
-                      <br></br>
-                      ¡Vivamos juntos un nuevo capítulo de cultura y tradición
-                      en nuestro pueblo!
-                      <br></br>
-                      <br></br>
+                      Agendá esta fecha 🤩 después de tanto pedirlo, lo tendremos 
+                        <br /><br />
+                      🎭 TALLER DE TEATRO EN CHÁÑAR
+                      <br /><br />
+                      🗓️ Miércoles 16 de julio | 🕒 15 a 18 h<br />  
+                      📍 Salón de la Pileta Municipal<br />  
+                      📣 ¡Gratuito y abierto a todo público!<br />  
+                        <br /><br />
+                      Si tenés ganas de expresarte, jugar, conectar con otros y animarte a algo nuevo…<br />  
+                      ¡Este espacio es para vos! 💥<br />  
+                      Destinado a adolescentes, adultos y adultos mayores que quieran acercarse al mundo del teatro, ya sea por curiosidad, por pasión o por diversión.
+                      <br /><br />
+                      No se necesita experiencia previa, solo ganas de participar 🎬
+                      <br /><br />  
+                      🗣️ ¡Te esperamos para vivir una tarde distinta, llena de emoción, risa y creatividad!
+                      <br /><br />
+                      Organizan: Secretaría de Cultura y Turismo | Municipalidad de San Francisco del Chañar | Corredor Teatral Norte
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-          </article> */}
+          </article>
 
+          {/**************** calendario Julio ****************/}
+          <article className="intro mx-auto">
+            <button
+              className="text-center"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#Julio"
+            >
+              <img src={calendario} width="100%" alt="" />
+              <h5 className="fs-6">
+                TE PRESENTAMOS EL CALENDARIO DEL MES DE JULIO
+              </h5>
+              <p>
+                Seguir leyendo
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-arrow-right-short"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"
+                  />
+                </svg>
+              </p>
+            </button>
+
+            <div
+              class="modal fade"
+              id="Julio"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1
+                      class="modal-title  text-center fs-4"
+                      id="exampleModalLabel"
+                    >
+                      TE PRESENTAMOS EL CALENDARIO DEL MES DE JULIO
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body ">
+                    <img src={calendario} width="100%" alt="" />
+                    <p className="fs-6 text-start mt-3 mx-auto">
+                      {" "}
+                       TE PRESENTAMOS EL CALENDARIO DEL MES DE JULIO 🌟
+                        <br /><br />
+                        Desde la Secretaría de Cultura y Turismo te invitamos a ser parte de cada una de las actividades que preparamos con amor y compromiso para toda la comunidad 💛
+                        <br /><br />
+                        ✅ Actos patrios<br />
+                        ✅ Celebraciones<br />
+                        ✅ Capacitaciones<br />
+                        ✅ Eventos recreativos<br /><br />
+
+                        📆 ¡Agendá cada fecha y sumate a disfrutar, compartir y celebrar nuestra identidad!
+                          <br /><br />
+                        🙌 Porque tu participación hace que sigamos construyendo un pueblo más vivo, más unido y orgulloso de su cultura.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          
+          {/**************** Independencia ****************/}
+          <article className="intro mx-auto">
+            <button
+              className="text-center"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#independencia"
+            >
+              <img src={independencia} width="100%" alt="" />
+              <h5 className="fs-6">
+                ¡Este 9 de Julio celebramos juntos la Independencia!
+              </h5>
+              <p>
+                Seguir leyendo
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-arrow-right-short"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"
+                  />
+                </svg>
+              </p>
+            </button>
+
+            <div
+              class="modal fade"
+              id="independencia"
+              tabindex="-1"
+              aria-labelledby="exampleModalLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1
+                      class="modal-title  text-center fs-4"
+                      id="exampleModalLabel"
+                    >
+                      ¡Este 9 de Julio celebramos juntos la Independencia!
+                    </h1>
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div class="modal-body ">
+                    <img src={independencia} width="100%" alt="" />
+                    <p className="fs-6 text-start mt-3 mx-auto">
+                      {" "}
+                       ¡Este 9 de Julio celebramos juntos la Independencia!
+                       <br/>
+                        En San Francisco del Chañar, conmemoramos aquel grito valiente de libertad que nos une como pueblo.
+                        <br/><br/>
+                         🎉 Te invitamos a compartir esta fecha patria con música, tradición, historia y emoción.
+                         <br/>
+                        📍 Hipódromo Municipal
+                        <br/>
+                         🕘 De 10:30 a 18 horas
+                         <br/>
+                        Acto protocolar, armuerzo criollo, juegos tradicionales, destrezas criollas, ballets y mucho más.
+                        <br/><br/>
+                        ¡Traé tu bandera, tu voz y tus ganas de celebrar lo que somos!
+                        <br/><br/>
+                        Organiza: Municipalidad de San Francisco del Chañar 
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          
           {/**************** Mes de los Jardines****************/}
           <article className="intro mx-auto">
             <button
@@ -232,113 +370,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-          </article>
-          
-          {/**************** cafe literario ****************/}
-          <article className="intro mx-auto">
-            <button
-              className="text-center"
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#cafeLiterario"
-            >
-              <img src={cafeLiterario} width="100%" alt="" />
-              <h5>
-                Se viene el 1º Café Literario “Tinkuy Yuyay”: un espacio para
-                encontrarse entre palabras, texturas y aromas
-              </h5>
-              <p>
-                Seguir leyendo
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-arrow-right-short"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8"
-                  />
-                </svg>
-              </p>
-            </button>
-
-            <div
-              class="modal fade"
-              id="cafeLiterario"
-              tabindex="-1"
-              aria-labelledby="exampleModalLabel"
-              aria-hidden="true"
-            >
-              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1
-                      class="modal-title  text-center fs-4"
-                      id="exampleModalLabel"
-                    >
-                      Se viene el 1º Café Literario “Tinkuy Yuyay”: un espacio
-                      para encontrarse entre palabras, texturas y aromas
-                    </h1>
-                    <button
-                      type="button"
-                      class="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div class="modal-body ">
-                    <img src={cafeLiterario} width="100%" alt="" />
-                    <p className="fs-6 text-start mt-3 mx-auto">
-                      {" "}
-                      El próximo <b>viernes 30 de mayo</b>, San Francisco del
-                      Chañar vivirá una jornada especial para los amantes de las
-                      letras con el lanzamiento del
-                      <b> 1º Café Literario “Tinkuy Yuyay”</b>, una propuesta
-                      cultural pensada como espacio de{" "}
-                      <b>lectura compartida y escritura creativa</b>, destinada
-                      a personas aficionadas a la lectoescritura. <br></br>
-                      <br></br>
-                      La actividad se desarrollará en <b>Bar Encuentros</b>, de
-                      17 a 19 horas, y está abierta a <b>todo público</b>.
-                      Durante las dos horas del encuentro, se disfrutará de una
-                      merienda, se compartirán creaciones propias, finalizando
-                      con un taller creativo de escritura, que permitirá a los
-                      asistentes experimentar y dar forma a sus propias
-                      palabras.<br></br>
-                      <br></br>
-                      El evento tiene un <b>costo de $4000 por persona</b> e
-                      incluye la merienda y los materiales del taller. Los{" "}
-                      <b>cupos son limitados a 20 personas</b>, por lo que se
-                      recomienda realizar la inscripción con anticipación para
-                      asegurar su lugar. Podés hacerlo al tel:{" "}
-                      <a href="tel:+5493513945187" target="_blank">
-                        3513945187
-                      </a>
-                      <br></br>
-                      <br></br>
-                      “Tinkuy Yuyay” —palabras quechuas que significan
-                      “encuentro de pensamientos”— nace con la intención de{" "}
-                      <b>
-                        fomentar la creación literaria, visibilizar la
-                        producción local y construir comunidad{" "}
-                      </b>
-                      a través del arte de leer y escribir.<br></br>
-                      <br></br>
-                      Desde la Secretaría de Cultura y Turismo de la
-                      Municipalidad de San Francisco del Chañar, se invita a
-                      todos los vecinos y vecinas de la localidad y zonas
-                      aledañas a participar de esta experiencia íntima, sensible
-                      y creativa, que promete ser el primero de muchos
-                      encuentros con la palabra.<br></br>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </article>
+          </article>     
 
           {/**************** PrePalma ****************/}
           <article className="intro mx-auto">

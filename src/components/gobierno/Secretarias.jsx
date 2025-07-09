@@ -91,51 +91,7 @@ const Secretarias = () => {
         insta={"https://www.instagram.com/juanaraya2024/"}
         face={""}
         />
-
-      <Secretario 
-        cargo={"Secretaria de Cultura"}
-        img={laura}
-        nombre={"Laura Gomez"}
-        tel={"+5493522410156"}
-        email={"culturasanfranciscodelchanar@gmail.com"}
-        direccion={"Rivadavia 137"}
-        insta={"https://www.instagram.com/cultura_sanfranciscodelchanar/"}
-        face={"https://www.facebook.com/profile.php?id=61555008871040&ref=xav_ig_profile_web"}
-        />
-
-      <Secretario 
-        cargo={"Secretaria de Turismo"}
-        img={anahi}
-        nombre={"Anahí Oroná"}
-        tel={"+5493513945187"}
-        email={"culturasanfranciscodelchanar@gmail.com"}
-        direccion={"Rivadavia 137"}
-        insta={"https://www.instagram.com/cultura_sanfranciscodelchanar/"}
-        face={"https://www.facebook.com/profile.php?id=61555008871040&ref=xav_ig_profile_web"}
-        />
-      
-      <Secretario 
-        cargo={"Secretario de Juventud"}
-        img={pablo}
-        nombre={"Pablo Contreras"}
-        tel={"+5493522649701"}
-        email={"muni-sobremonte@hotmail.com"}
-        direccion={"Rivadavia 137"}
-        insta={"https://www.instagram.com/secretariade_areajuvenil/"}
-        face={""}
-        />
-      
-      <Secretario 
-        cargo={"Secretario de Educacion"}
-        img={daniel}
-        nombre={"Daniel Soria"}
-        tel={"+5493522403005"}
-        email={"muni-sobremonte@hotmail.com"}
-        direccion={"Rivadavia 137"}
-        insta={""}
-        face={""}
-        />
-      
+            
       <Secretario 
         cargo={"Administrador del Hospital Municipal"}
         img={mauri}
@@ -146,12 +102,57 @@ const Secretarias = () => {
         />
 
         <Secretario 
+        cargo={"Secretario de Educacion"}
+        img={daniel}
+        nombre={"Daniel Soria"}
+        tel={"+5493522403005"}
+        email={"muni-sobremonte@hotmail.com"}
+        direccion={"Rivadavia 137"}
+        insta={""}
+        face={""}
+        />
+
+      <Secretario 
+        cargo={"Secretaria de Cultura y Turismo"}
+        img={anahi}
+        nombre={"Anahí Oroná"}
+        tel={"+5493513945187"}
+        email={"culturasanfranciscodelchanar@gmail.com"}
+        direccion={"Rivadavia esquina Belgrano"}
+        insta={"https://www.instagram.com/cultura_sanfranciscodelchanar/"}
+        face={"https://www.facebook.com/profile.php?id=61555008871040&ref=xav_ig_profile_web"}
+        />
+
+
+    {/*  <Secretario 
+        cargo={"Secretario de Deportes"}
+        img={eze}
+        nombre={"Ezequiel Figueroa"}
+        tel={"+54935"}
+        email={"muni-sobremonte@hotmail.com"}
+        direccion={"Av. Presidente Roca"}
+        insta={""}
+        face={""}
+        /> */}
+
+        <Secretario 
         cargo={"Coordinadora de la Universidad Popular"}
         img={vero}
         nombre={"Veronica Romero"}
         tel={"+5493522453013"}
         email={"Universidadpopularsfc@gmail.com"}
         direccion={"Rivadavia 137"}
+        />
+              
+      <Secretario 
+        cargo={"Secretario de Juventud"}
+        img={pablo}
+        nombre={"Pablo Contreras"}
+        tel={"+5493522649701"}
+        email={"muni-sobremonte@hotmail.com"}
+        direccion={"Rivadavia 137"}
+        insta={"https://www.instagram.com/secretariade_areajuvenil/"}
+        face={""}
         />
      
     </>

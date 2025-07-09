@@ -8,6 +8,7 @@ import independencia from '../assets/fechasTradicionales/independencia.webp'
 import panchoRamirez from '../assets/fechasTradicionales/panchoRamirez.jpg'
 import cicloTour from '../assets/fechasTradicionales/cicloTour.webp'
 import cafeLiterario from '../assets/fechasTradicionales/cafeLiterario.webp'
+import primavera from '../assets/fechasTradicionales/primavera.webp'
 import virgen from '../assets/fechasTradicionales/virgen.webp'
 import prepalma from '../assets/fechasTradicionales/prepalma.webp'
 import banner from "../assets/bannerFechas.jpg";
@@ -64,13 +65,13 @@ const Fechaslocales = () => {
       img:chanar,
       fecha:"14 de Agosto"
     },
-    /* {
+    {
       id: 6,
       titulo: "Chañar pinta en primavera",
       text: "Encuentro de Pintores “Chañar pinta en primavera”. Cada mes de septiembre, cuando la primavera comienza a florecer en el norte cordobés, San Francisco del Chañar se llena de color, inspiración y arte con el Encuentro de Pintores “Chañar pinta en primavera”. Artistas de distintas localidades llegan con sus pinceles y lienzos para interpretar los paisajes, las calles, las casonas y los rincones más emblemáticos del pueblo. A cielo abierto, en plazas, patios y caminos, se crea una galería viva donde el arte sucede en tiempo real. El evento rinde homenaje a grandes artistas como Fernando Fader y Malanca, quienes alguna vez pasaron por estas tierras dejando huella en la historia del arte argentino. Durante el encuentro se realizan charlas, recorridos guiados, exposiciones colectivas y una ceremonia final con entrega de certificados. Es una oportunidad única para conectar con el arte, con la naturaleza y con la identidad cultural del pueblo.",
-      img:ninoDios,
+      img:primavera,
       fecha:"Septiembre"
-    }, */
+    }, 
     {
       id: 6,
       titulo: "Pre Palma – Certamen de Música Folclórica",
