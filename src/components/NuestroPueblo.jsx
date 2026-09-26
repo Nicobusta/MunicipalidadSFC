@@ -41,7 +41,7 @@ const NuestroPueblo = () => {
   const galleryImagesRef = useRef([]);
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 768);
 
-  useEffect(() => {
+   useEffect(() => {
     const handleResize = () => {
       setIsLargeScreen(window.innerWidth > 768);
     };
@@ -465,11 +465,6 @@ const NuestroPueblo = () => {
                     img={nuevoRancho}
                   />
 
-                  <Gastronomia
-                    nombre="La previa"
-                    telefono="+5493513732290"
-                    img={laprevia}
-                  />
 
                   <Gastronomia
                     nombre="bar encuentos"
@@ -494,9 +489,9 @@ const NuestroPueblo = () => {
                   />
 
                   <Gastronomia
-                    nombre="bar la terminal"
-                    telefono="+5493512109971"
-                    img={bar}
+                    nombre="posta del camino"
+                    telefono="+5493521550353"
+                    img={postaDelCamino}
                   />
 
                   <Gastronomia

@@ -64,13 +64,13 @@ const Fechaslocales = () => {
       img:primavera,
       fecha:"Septiembre"
     }, 
-    {
+    /* {
       id: 8,
-      titulo: "Festival del Ozobuco",
+      titulo: "Festival del Osobuco",
       text: "Durante el mes de noviembre, San Francisco del Chañar se convierte en el escenario del Pre Palma, el certamen musical que abre las puertas del Festival Provincial de la Palma. Este evento reúne a talentos emergentes del folclore argentino, provenientes de distintos puntos de la provincia y la región, en una competencia vibrante donde la música, la identidad y la tradición se dan la mano. Con entrada libre y una destacada grilla de artistas participantes, el Pre Palma no solo busca reconocer a nuevos exponentes del género, sino también revivir el espíritu festivalero que caracteriza al norte cordobés. El certamen cuenta con un jurado especializado, servicio de buffet, stands culturales y presentaciones artísticas invitadas que animan la jornada. Los ganadores tendrán su lugar asegurado en el escenario mayor del Festival de la Palma, representando a la nueva generación del folclore.",
-      img:prepalma,
+      img:osobuco,
       fecha:"Octubre"
-    },
+    }, */
     {
       id: 9,
       titulo: "Peregrinación Virgen del Valle",
