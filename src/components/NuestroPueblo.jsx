@@ -27,13 +27,13 @@ import damian from "../assets/alojamientos/damian.jpeg";
 import miguelHeredia from "../assets/alojamientos/miguelHeredia.jpeg";
 import jacaranda from "../assets/alojamientos/jacaranda.jpeg";
 import susi from "../assets/alojamientos/susi.jpeg";
+import losSauces from "../assets/alojamientos/losSauces.webp";
 /* GASTRONOMIA */
-import bar from "../assets/gastronomia/bar.png";
+import postaDelCamino from "../assets/gastronomia/postaDelCamino.jpeg";
 import nuevoRancho from "../assets/gastronomia/nuevoRancho.png";
 import encuentros from "../assets/gastronomia/encuentros.jpg";
 import elcruce from "../assets/gastronomia/elcruce.jpg";
 import nacha from "../assets/gastronomia/nacha.png";
-import laprevia from "../assets/gastronomia/laprevia.jpeg";
 import barDamian from "../assets/gastronomia/damian.jpeg";
 
 const NuestroPueblo = () => {
@@ -88,11 +88,10 @@ const NuestroPueblo = () => {
         data-aos="zoom-in"
         className="text-center mx-4 my-4 mx-md-auto my-md-5"
       >
-        San Francisco del Chañar es una localidad situada al norte de la
-        provincia de Córdoba, a 200 km de la ciudad capital. A ella se llega a
-        través de ruta 9, y luego tomando la ruta 22 por 30 km más. Dicha
-        localidad está situada sobre el camino real y cuenta con una población
-        de aprox. 4500 personas.
+        <b>San Francisco del Chañar</b> es una localidad ubicada al norte de la provincia de Córdoba, a aproximadamente 200 km de la ciudad capital. Se accede a ella a través de la Ruta Nacional N° 9 y, posteriormente, por la Ruta Provincial N° 22.<br></br>
+        Situado sobre el histórico Camino Real, este pueblo de alrededor de 4.500 habitantes conserva la esencia de las antiguas postas y tradiciones del norte cordobés.<br></br>
+        Con una identidad profundamente ligada a la historia, la fe y las costumbres, San Francisco del Chañar invita a descubrir un ritmo de vida tranquilo, donde la hospitalidad, la cultura y la naturaleza se entrelazan en cada rincón.
+
       </p>
       
       {/* COMIENZO DE LA GALERIA */}
@@ -384,6 +383,25 @@ const NuestroPueblo = () => {
             tel="+5493522543383"
             img={jacaranda}
           />
+
+          {/* <Hospedaje
+            efecto={"fade-right"}
+            titulo="SENDEROS DEL PALMAR"
+            tipo="DEPARTAMETO"
+            capacidad="4"
+            direccion="Frente a la plaza central"
+            tel="+5493522650055"
+            img={jacaranda}
+          /> */}
+
+          <Hospedaje
+            efecto={"fade-left"}
+            titulo="Camping Los Sauces"
+            tipo="Camping Municipal"
+            capacidad="100"
+            tel="+5493522440078"
+            img={losSauces}
+          />
         </article>
       </section>
 
@@ -399,16 +417,11 @@ const NuestroPueblo = () => {
             />
 
             <Gastronomia
-              nombre="La previa"
-              telefono="+5493513732290"
-              img={laprevia}
-            />
-
-            <Gastronomia
               nombre="bar encuentos"
               telefono="+5493522650648"
               img={encuentros}
             />
+
 
             <Gastronomia
               nombre="bar el cruce"
@@ -423,9 +436,9 @@ const NuestroPueblo = () => {
             />
 
             <Gastronomia
-              nombre="bar la terminal"
-              telefono="+5493512109971"
-              img={bar}
+              nombre="posta del camino"
+              telefono="+5493521550353"
+              img={postaDelCamino}
             />
 
             <Gastronomia

@@ -82,7 +82,7 @@ const Secretarias = () => {
       </section>
 
       <Secretario 
-        cargo={"Secretario General"}
+        cargo={"Secretario de Gobierno"}
         img={juan}
         nombre={"Juan Araya"}
         tel={"+5493517066542"}
@@ -113,7 +113,7 @@ const Secretarias = () => {
         />
 
       <Secretario 
-        cargo={"Secretaria de Cultura y Turismo"}
+        cargo={"Secretaria de Turismo"}
         img={anahi}
         nombre={"Anahí Oroná"}
         tel={"+5493513945187"}
@@ -123,7 +123,16 @@ const Secretarias = () => {
         face={"https://www.facebook.com/profile.php?id=61555008871040&ref=xav_ig_profile_web"}
         />
 
-
+      <Secretario 
+        cargo={"Secretaria de Cultura"}
+        img={laura}
+        nombre={"Laura Gomez"}
+        tel={"+5493522410156"}
+        email={"culturasanfranciscodelchanar@gmail.com"}
+        direccion={"Rivadavia esquina Belgrano"}
+        insta={"https://www.instagram.com/cultura_sanfranciscodelchanar/"}
+        face={"https://www.facebook.com/profile.php?id=61555008871040&ref=xav_ig_profile_web"}
+        />
     {/*  <Secretario 
         cargo={"Secretario de Deportes"}
         img={eze}
